@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep portfolio facts in `src/data/portfolio.ts` and use reusable sections, so approved content and contact links can be updated without changing presentation.
+- Use a single index route with anchor navigation as explicitly requested; case studies use accessible Radix dialogs rather than separate routes.
+- Never substitute conceptual project cover art for verified project screenshots; actual gallery assets stay empty until supplied.
+- Contact links stay unavailable until approved values are supplied; never invent links or pretend a message was sent.
