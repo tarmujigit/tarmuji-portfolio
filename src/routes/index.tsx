@@ -1,24 +1,60 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router';
+import { useState, type ReactNode } from 'react';
+import { ArrowDown, ArrowRight, ArrowUp, ArrowUpRight, Award, BarChart3, BriefcaseBusiness, ChevronDown, Code2, Database, Globe, Instagram, Layers3, Linkedin, Mail, MessageCircle, Palette, Play, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Navigation, Wordmark } from '@/components/portfolio/navigation';
+import { ProjectArt } from '@/components/portfolio/project-art';
+import { CaseStudy } from '@/components/portfolio/case-study';
+import { certificates, certificateCategories, education, experience, languages, leadership, profile, projects, skills, type Project } from '@/data/portfolio';
+import sculpture from '@/assets/digital-sculpture.jpg';
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
+export const Route = createFileRoute('/')({
+  head: () => ({ meta: [
+    { title: 'Tarmuji — Digital Business, Data & Creative Technology' },
+    { name: 'description', content: 'Explore Tarmuji’s work across digital marketing, data analytics, creative design and technology. A multidisciplinary digital business portfolio.' },
+    { property: 'og:title', content: 'Tarmuji — Digital Business, Data & Creative Technology' },
+    { property: 'og:description', content: 'Ideas, data and creativity turned into digital experiences. Explore projects, experience and certifications.' },
+    { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },
+  ] }), component: Index,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: ReactNode; description?: string }) {
+  return <div className="section-heading"><div><div className="eyebrow">{eyebrow}</div><h2 className="section-title">{title}</h2></div>{description && <p className="section-intro">{description}</p>}</div>;
 }
+const skillIcons = [BarChart3, Database, Palette, Code2, BriefcaseBusiness];
+const toolkit = [{ name: 'Digital Marketing', icon: BarChart3, target: 'skills' }, { name: 'Data Analytics', icon: Database, target: 'skills' }, { name: 'Brand Design', icon: Palette, target: 'projects' }, { name: 'Video Editing', icon: Play, target: 'projects' }, { name: 'Python / SQL', icon: Code2, target: 'skills' }, { name: 'Roblox / Lua', icon: Layers3, target: 'projects' }];
+function Index() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [filter, setFilter] = useState('All');
+  const [contactNotice, setContactNotice] = useState(false);
+  const filtered = certificates.filter(c => filter === 'All' || c.category === filter);
+  const links = [
+    { label: 'Email', icon: Mail, value: profile.contact.email, href: `mailto:${profile.contact.email}` },
+    { label: 'LinkedIn', icon: Linkedin, value: profile.contact.linkedin, href: profile.contact.linkedin },
+    { label: 'Instagram', icon: Instagram, value: profile.contact.instagram, href: profile.contact.instagram },
+    { label: 'WhatsApp', icon: MessageCircle, value: profile.contact.whatsapp, href: profile.contact.whatsapp },
+  ];
+  return <><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-card focus:p-3">Skip to content</a><Navigation />
+  <main id="main">
+    <section id="home" className="hero-section"><div className="container-shell"><div className="hero-main">
+      <div className="reveal"><div className="eyebrow">DIGITAL BUSINESS • CREATIVE • TECHNOLOGY</div><p className="hero-name">Hi, I'm Tarmuji.</p>
+        <h1 className="hero-title">I turn ideas, data,<br />and creativity into<br /><span className="gradient-text">digital experiences.</span></h1>
+        <p className="hero-copy">Digital Business professional with experience across digital marketing, data analysis, creative content, technology, and Japanese manufacturing environments.</p>
+        <div className="hero-actions"><Button variant="portfolio" asChild><a href="#projects">Explore My Work <ArrowUpRight /></a></Button><Button variant="quiet" asChild><a href="#contact">Let's Connect <ArrowRight /></a></Button></div>
+      </div>
+      <div className="hero-art"><img className="sculpture" src={sculpture} width={1280} height={1024} alt="Interconnected blue, violet and cyan glass ribbon sculpture" fetchPriority="high" /><span className="art-label"><span className="status-dot" />A MULTIDISCIPLINARY MINDSET</span>
+        <div className="toolkit"><div className="toolkit-heading"><span>My digital toolkit</span><Sparkles /></div><div className="toolkit-grid">{toolkit.map(t => <Button asChild variant="ghost" className="toolkit-item" key={t.name}><a href={`#${t.target}`}><t.icon />{t.name}</a></Button>)}</div></div>
+      </div>
+    </div><div className="hero-bottom"><a href="#about" className="scroll-link"><ArrowDown size={13} /> SCROLL TO EXPLORE</a><span>IDEAS WITH PURPOSE. EXPERIENCES WITH IMPACT.</span></div>
+    <div className="stats-grid">{profile.stats.map(s => <div className="stat" key={s.value} title={'note' in s ? s.note : undefined}><div className="stat-value">{s.value}</div><div className="stat-label">{s.label}</div></div>)}</div></div></section>
+    <section id="about" className="section"><div className="container-shell"><div className="about-layout"><div><div className="eyebrow">01 / THE PERSON BEHIND THE WORK</div><h2 className="section-title">More Than One Discipline.<br /><span className="gradient-text">One Digital Mindset.</span></h2><div className="about-signature">Precision meets possibility.</div></div><div className="about-copy"><p>I'm <strong>Tarmuji</strong>, a Digital Business professional connecting manufacturing, digital marketing, data, creative work, and technology.</p><p>My journey began in Japanese manufacturing environments, where <strong>quality, precision, discipline, and teamwork</strong> formed my foundation. That mindset has grown into a multidisciplinary practice across digital business, marketing, data, design, and technology.</p><p>Different disciplines. A shared approach: understand the challenge, connect the dots, and create something meaningful.</p></div></div><div className="journey" aria-label="Professional journey">{['MANUFACTURING','JAPAN','DIGITAL BUSINESS','MARKETING','DATA','CREATIVE','TECHNOLOGY'].map((step,i) => <span className="inline-flex items-center gap-3" key={step}>{i > 0 && <ArrowRight />}{step}</span>)}</div></div></section>
+    <section id="experience" className="section"><div className="container-shell"><SectionHeading eyebrow="02 / EXPERIENCE" title={<>A journey built on <span className="gradient-text">doing.</span></>} description="From precision on the manufacturing floor to possibilities in the digital world." />{experience.slice(0,4).map(e => <ExperienceRow key={e.company} item={e} />)}<details className="older-experience"><summary>Earlier chapters · Manufacturing & Japan <ChevronDown /></summary>{experience.slice(4).map(e => <ExperienceRow key={e.company} item={e} />)}</details></div></section>
+    <section id="skills" className="section"><div className="container-shell"><SectionHeading eyebrow="03 / MY TOOLKIT" title={<>Different skills. <span className="gradient-text">Connected thinking.</span></>} description="The tools and capabilities I bring to the table — across strategy, analysis, design, and development." /><div className="skill-grid">{skills.map((s,i) => { const Icon = skillIcons[i] ?? Code2; return <article className="skill-card" key={s.name}><Icon className="skill-icon" /><h3>{s.name}</h3><div className="skill-chips">{s.items.map(item => <span className="skill-chip" key={item}>{item}</span>)}</div></article>; })}</div></div></section>
+    <section id="projects" className="section"><div className="container-shell"><SectionHeading eyebrow="04 / SELECTED WORK" title={<>Ideas made <span className="gradient-text">tangible.</span></>} description="A selection of work at the intersection of business, creativity, and technology." /><div className="project-grid">{projects.map(p => <article className="project-card" key={p.id}><ProjectArt project={p} /><div className="project-info"><div className="project-category">{p.category}</div><div className="project-name-row"><h3>{p.title}</h3><ArrowUpRight size={18} className="text-muted-foreground" /></div><p>{p.description}</p><Button variant="ghost" className="case-link" onClick={() => setSelectedProject(p)} aria-label={`View case study: ${p.title}`}>View Case Study <ArrowUpRight /></Button></div></article>)}</div></div></section>
+    <section className="container-shell achievement" aria-labelledby="achievement-title"><div className="award-emblem"><Award /></div><div><div className="eyebrow">A MOMENT THAT MATTERS</div><h2 id="achievement-title">Gold Medal <span className="gradient-text">— IITE 2024</span></h2><p>International Technology Expo (IITE) 2024 · MEGA APPS · Team project</p></div><span className="award-year" aria-hidden="true">2024</span></section>
+    <section className="section"><div className="container-shell"><SectionHeading eyebrow="05 / LEADERSHIP" title={<>Creating together. <span className="gradient-text">Leading with purpose.</span></>} /><div className="leadership-grid">{leadership.map(([year,role,org]) => <article className="leadership-item" key={org}><span>{year}</span><div><h3>{role}</h3><p>{org}</p></div></article>)}</div></div></section>
+    <section id="certificates" className="section"><div className="container-shell"><SectionHeading eyebrow="06 / CONTINUOUS LEARNING" title={<>Always curious. <span className="gradient-text">Always growing.</span></>} description="Learning that supports my work — from marketing and data to language and professional development." /><div className="filter-row" aria-label="Filter certificates">{certificateCategories.map(cat => <Button variant="filter" key={cat} aria-pressed={filter === cat} onClick={() => setFilter(cat)}>{cat}</Button>)}</div><p className="results-count" aria-live="polite">{filtered.length} certificates · {filter}</p><div className="certificate-grid">{filtered.map(c => <article key={c.id} className="certificate-card"><Award /><div><h3>{c.name}</h3><p>{c.issuer ? `${c.issuer} · ` : ''}{c.year}<br />{c.category}</p></div></article>)}</div></div></section>
+    <section className="section"><div className="container-shell education-layout"><div><SectionHeading eyebrow="07 / FOUNDATION" title="Education" />{education.map(e => <article className="education-item" key={e.school}><h3>{e.degree}</h3><div className="education-meta"><span>{e.school}</span><span>{e.date}</span></div>{e.detail && <p>{e.detail}</p>}<p>{e.focus}</p></article>)}</div><div><SectionHeading eyebrow="CROSS-CULTURAL CONNECTION" title="Languages" />{languages.map(([name,level]) => <div className="language-row" key={name}><span>{name}</span><span>{level}</span></div>)}</div></div></section>
+    <section id="contact" className="contact-section"><div className="container-shell"><div className="eyebrow">08 / THE NEXT CHAPTER</div><h2 className="contact-title">HAVE AN IDEA?<br /><span className="gradient-text">LET'S BUILD.</span></h2><p className="contact-subtext">I'm open to opportunities, collaborations, creative projects, and digital business challenges.</p>{profile.contact.email ? <Button variant="portfolio" asChild><a href={`mailto:${profile.contact.email}`}>Let's start a conversation <ArrowUpRight /></a></Button> : <Button variant="portfolio" onClick={() => setContactNotice(true)}>Let's start a conversation <ArrowUpRight /></Button>}{contactNotice && <p className="contact-unavailable" role="status">Contact details are awaiting confirmation. Direct messaging is not available yet.</p>}<div className="contact-links">{links.map(link => link.value ? <a key={link.label} href={link.href} target={link.label === 'Email' ? undefined : '_blank'} rel="noopener noreferrer"><link.icon />{link.label}<ArrowUpRight size={12} /></a> : <span key={link.label} title="Approved contact link pending"><link.icon />{link.label}<span className="sr-only"> — awaiting approved contact details</span></span>)}</div><p className="contact-unavailable">Approved contact links coming soon.</p></div></section>
+  </main><footer className="container-shell footer"><a href="#home" aria-label="Tarmuji home"><Wordmark /></a><p>© {profile.year} Tarmuji. All rights reserved.</p><a href="#home" className="inline-flex items-center gap-2">Back to top <ArrowUp size={12} /></a></footer><CaseStudy project={selectedProject} onClose={() => setSelectedProject(null)} /></>;
+}
+function ExperienceRow({ item }: { item: typeof experience[number] }) { return <article className="experience-row"><span className="experience-date">{item.date}</span><div><h3>{item.role}</h3><p>{item.company}</p></div><span className="category-tag">{item.area}</span></article>; }
