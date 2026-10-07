@@ -9,7 +9,7 @@ import { achievement, certificates, certificateCategories, education, experience
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
-    { title: 'Tarmuji — Digital Business & Creative Professional' },
+    { title: 'Tarmuji Portfolio' },
     { name: 'description', content: 'Portfolio Tarmuji: perjalanan manufaktur Jepang, digital marketing, data analytics, karya kreatif, dan pengembangan teknologi berbasis bukti.' },
     { property: 'og:title', content: 'Tarmuji — Digital Business & Creative Professional' },
     { property: 'og:description', content: 'Dari data, ide, dan kreativitas menjadi pengalaman digital. Jelajahi proyek, pengalaman, sertifikasi, dan prestasi Tarmuji.' },
