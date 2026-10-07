@@ -13,3 +13,6 @@
 - Use a single index route with anchor navigation as explicitly requested; case studies use accessible Radix dialogs rather than separate routes.
 - Never substitute conceptual project cover art for verified project screenshots; actual gallery assets stay empty until supplied.
 - Contact links stay unavailable until approved values are supplied; never invent links or pretend a message was sent.
+- Navigation uses explicit section IDs separate from labels so translated copy cannot break anchors.
+- Project records drive filters, optional evidence metrics, workflows and video links in a reusable case-study dialog so content changes remain presentation-independent.
+- Without verified screenshots, project covers are typographic summaries, never fabricated interface or work samples.
