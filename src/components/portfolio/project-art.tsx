@@ -1,17 +1,14 @@
-import { Award, Play, Search } from 'lucide-react';
+import { Award, BarChart3, Code2, FileText, Film, Layers3, Palette } from 'lucide-react';
 import type { Project } from '@/data/portfolio';
 
+const icons = { data: BarChart3, mega: Layers3, vinix: Palette, seo: FileText, roblox: Code2, video: Film, ayumi: Palette };
 export function ProjectArt({ project }: { project: Project }) {
-  return <div className="project-art" aria-label={`Conceptual cover illustration for ${project.title}, not a project screenshot`} role="img">
-    <div className={`project-art-inner ${project.visual}-art`} aria-hidden="true">
-      {project.visual === 'mega' && <>{['Business', 'Community'].map((label) => <div className="phone-mockup" key={label}><div className="phone-notch" /><div className="phone-brand">MEGA APPS<span className="gradient-text">.</span></div><div className="phone-caption">BUSINESS & COMMUNITY</div><div className="phone-banner">One community.<br />More possibilities.</div><div className="phone-tiles">{[label, 'Analytics', 'Services', 'Finance'].map(x => <div key={x}>{x}</div>)}</div></div>)}</>}
-      {project.visual === 'ayumi' && <><div className="poster"><small>AYUMI NIHONGO GAKKOU</small><strong>A new<br />perspective.</strong><span className="japanese">日本</span></div><div className="poster"><small>LANGUAGE · CULTURE</small><span className="japanese">学ぶ</span><strong>Connect.<br />Discover.</strong></div></>}
-      {project.visual === 'vinix' && <div className="brand-board"><div className="brand-box"><strong>VINIX.</strong><span>VISUAL IDENTITY CONCEPT</span></div><div className="brand-swatches"><i /><i /><i /></div></div>}
-      {project.visual === 'roblox' && <div className="world-grid">{Array.from({ length: 25 },(_,i) => <i key={i} />)}</div>}
-      {project.visual === 'seo' && <div className="search-window"><div className="search-bar"><Search size={14} />Turning intent into discovery</div><div className="search-bars">{Array.from({ length: 9 },(_,i) => <i key={i} />)}</div></div>}
-      {project.visual === 'video' && <div className="editor-window"><div className="video-preview"><Play /></div><div className="video-track"><i /><i /><i /><i /></div><div className="video-track"><i /><i /><i /></div></div>}
-    </div>
-    {project.id === 'mega' && <span className="project-award"><Award /> Gold Medal · IITE 2024</span>}
-    <span className="concept-label">CONCEPTUAL COVER · NOT A PROJECT SCREENSHOT</span>
+  const Icon = icons[project.visual as keyof typeof icons] ?? FileText;
+  const cover = project.gallery[0];
+  if (cover) return <div className="project-art"><img className="verified-cover" src={cover.src} alt={cover.alt} loading="lazy" /></div>;
+  return <div className={`project-art project-summary-cover ${project.visual}-summary`}>
+    <div className="cover-top"><Icon aria-hidden="true" /><span>{project.id === 'kokorolens' ? 'TUGAS AKHIR · 2026' : project.filter}</span></div>
+    <div className="cover-title">{project.id === 'kokorolens' ? 'KOKOROLENS' : project.title}</div>
+    <div className="cover-bottom">{project.id === 'mega' ? <span className="cover-award"><Award aria-hidden="true" /> Gold Medal · IITE 2024</span> : <span>{project.status}</span>}<span className="cover-number">{project.id === 'kokorolens' ? 'NLP' : project.id === 'video' ? 'SOLO' : project.id === 'svm' ? 'SVM' : '↗'}</span></div>
   </div>;
 }
