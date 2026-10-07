@@ -79,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Tarmuji — Digital Business & Creative Technology" },
-      { name: "description", content: "Tarmuji's portfolio across digital business, marketing, data, design and technology." },
+      { name: "description", content: "Portfolio Tarmuji dalam bisnis digital, pemasaran, data, kreativitas, dan teknologi." },
       { name: "author", content: "Tarmuji" },
       { property: "og:title", content: "Tarmuji — Digital Business & Creative Technology" },
-      { property: "og:description", content: "Ideas, data and creativity connected through a digital mindset." },
+      { property: "og:description", content: "Data, ide, dan kreativitas terhubung melalui pengalaman digital." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <HeadContent />
       </head>
