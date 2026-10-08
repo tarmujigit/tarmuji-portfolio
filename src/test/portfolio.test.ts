@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { certificates, education, navigation, profile, projects } from '@/data/portfolio';
+import { certificates, education, navigation, profile, projects, projectEvidence, storyAssets } from '@/data/portfolio';
 
 describe('Approved portfolio evidence', () => {
   it('keeps the featured order and explicit navigation IDs', () => {
@@ -24,5 +24,16 @@ describe('Approved portfolio evidence', () => {
     expect(education[0]?.detail).toBe('IPK 3,52');
     expect(profile.contact.email).toBe('Tarmujimm18@gmail.com');
     expect(certificates.length).toBeLessThan(12);
+  });
+  it('keeps career stats contextual and original media slots honest', () => {
+    expect(profile.stats.map(stat => stat.value)).toEqual(['900 JAM', '94,12%', '5.600+', 'GOLD MEDAL']);
+    expect(profile.stats[1]?.context).toContain('51 komentar');
+    expect(profile.stats[2]?.context).toBe('Pada akhir periode pengelolaan');
+    expect(projectEvidence.kokorolens).toHaveLength(2);
+    expect(projectEvidence.mega).toHaveLength(2);
+    expect(Object.values(projectEvidence).flat().every(asset => !asset.src)).toBe(true);
+    expect(storyAssets.every(asset => !asset.src)).toBe(true);
+    expect(certificates.every(certificate => !certificate.image)).toBe(true);
+    expect(projects.map(project => project.id)).toEqual(['kokorolens', 'mega', 'vinix', 'seo', 'roblox', 'video', 'linear', 'svm', 'ayumi']);
   });
 });
