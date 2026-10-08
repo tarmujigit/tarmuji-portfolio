@@ -16,3 +16,6 @@
 - Navigation uses explicit section IDs separate from labels so translated copy cannot break anchors.
 - Project records drive filters, optional evidence metrics, workflows and video links in a reusable case-study dialog so content changes remain presentation-independent.
 - Without verified screenshots, project covers are typographic summaries, never fabricated interface or work samples.
+- Optional original media and labeled evidence slots live in portfolio data and render through reusable galleries, so missing assets never become fabricated work samples.
+- Project cards share metrics, pipelines and evidence presentation with case studies, so preview claims remain consistent with detail claims.
+- Case study dialogs use a sticky Radix close control and restore focus to the originating card, so long galleries remain keyboard- and mobile-accessible.
