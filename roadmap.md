@@ -2,7 +2,9 @@
 - [x] Build approved single-page portfolio and premium visual system.
 - [x] Implement accessible case studies, certificate filters and mobile navigation.
 - [x] Verify desktop/mobile and approved factual content.
-- [ ] Apply final evidence-based Indonesian content, precise dates and approved contacts.
-- [ ] Build filterable project library, detailed case studies and eight solo video works.
-- [ ] Verify anchors, filters, dialogs, external links and mobile layout; publish existing project.
-- [ ] Use supplied portrait/graduation/media if mounted; otherwise keep honest asset states.
+- [x] Apply final evidence-based Indonesian content, precise dates and approved contacts.
+- [x] Build filterable project library, detailed case studies and eight solo video works.
+- [ ] Upgrade hero, career stats, editorial story, timeline, skills, achievement and education presentation.
+- [ ] Add evidence-ready flagship projects, visual case studies, video gallery and certificate wall without fabricated media.
+- [ ] Verify anchors, filters, dialogs, contacts and layout at mobile, tablet and desktop widths.
+- [ ] Use original portrait/graduation/media if available; otherwise provide polished honest asset slots.
