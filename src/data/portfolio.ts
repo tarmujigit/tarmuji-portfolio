@@ -6,10 +6,10 @@ export const profile = {
   portrait: '', graduation: '',
   contact: { email: 'Tarmujimm18@gmail.com', linkedin: 'https://www.linkedin.com/in/tarmuji-mongel/' },
   stats: [
-    { value: 'D4', label: 'Bisnis Digital · Politeknik Takumi' },
-    { value: 'Jepang', label: 'Pengalaman manufaktur · Shiga' },
-    { value: 'JLPT N4', label: 'Kompetensi bahasa Jepang' },
-    { value: 'Gold Medal', label: 'MEGA APPS · IITE 2024' },
+    { value: '900 JAM', label: 'Magang industri VINIX7', context: '28 Agu–28 Des 2025' },
+    { value: '94,12%', label: 'Accuracy KokoroLens', context: 'Evaluasi dataset · 51 komentar' },
+    { value: '5.600+', label: 'Followers Instagram Ayumi', context: 'Pada akhir periode pengelolaan' },
+    { value: 'GOLD MEDAL', label: 'Mega Apps · IITE 2024', context: 'Kategori Ready Made Product' },
   ],
 };
 export const navigation = [
@@ -35,7 +35,26 @@ export const skills = [
   { name: 'Technology', items: ['Roblox Studio', 'Luau / Lua', 'Web / Application Thinking'] },
   { name: 'Professional', items: ['Problem Solving', 'Analytical Thinking', 'Project Management', 'Leadership', 'Cross-cultural Communication'] },
 ];
-export type VideoWork = { title: string; url?: string };
+export type EvidenceAsset = { src?: string; alt: string; label: string };
+export type VideoWork = { title: string; url?: string; thumbnail?: string };
+// Populate src only with approved original media; empty slots are never work samples.
+export const storyAssets: EvidenceAsset[] = [
+  { label: 'Perjalanan pendidikan', alt: 'Tarmuji saat wisuda di Politeknik Takumi' },
+];
+export const projectEvidence: Record<string, EvidenceAsset[]> = {
+  kokorolens: [
+    { label: 'Dashboard analisis sentimen', alt: 'Screenshot asli dashboard KOKOROLENS' },
+    { label: 'Evaluasi model', alt: 'Screenshot asli evaluasi model KOKOROLENS' },
+  ],
+  mega: [
+    { label: 'Landing UI', alt: 'Screenshot asli landing UI MEGA APPS' },
+    { label: 'Sistem Informasi Kependudukan', alt: 'Screenshot asli Sistem Informasi Kependudukan MEGA APPS' },
+  ],
+  vinix: [{ label: 'Brand identity & konten', alt: 'Karya asli Tarmuji selama magang VINIX7' }],
+  seo: [{ label: 'Artikel & publikasi', alt: 'Bukti asli artikel SEO karya Tarmuji' }],
+  roblox: [{ label: 'Gameplay & pengembangan', alt: 'Screenshot asli pengembangan Roblox oleh Tarmuji' }],
+  ayumi: [{ label: 'Desain Instagram', alt: 'Desain Instagram Ayumi yang dibuat Tarmuji' }],
+};
 export type Project = {
   id: string; title: string; category: string; filter: string; description: string; visual: string; status: string;
   overview: string; challenge?: string; role?: string; process?: string; tools?: string; output?: string; result?: string; team?: string;
@@ -71,6 +90,7 @@ export const projects: Project[] = [
     description: 'Riset pasar, identitas brand, dan konten untuk kebutuhan pemasaran digital.', status: '28 Agu–28 Des 2025 · 900 jam',
     overview: 'Pengalaman Brand Design & Marketer di PT Vinix Seven Aurum. Periode kegiatan 28 Agustus–28 Desember 2025, dengan durasi 900 jam.',
     role: 'Brand Design & Marketer. Terlibat dalam branding dan marketing plan, brand identity, market research, positioning, content creation, dan digital marketing.',
+     highlights: ['Market Research', 'Brand Strategy', 'Brand Identity', 'Content Creation', 'Digital Marketing'],
     process: 'Terlibat dalam riset melalui kuesioner kepada 29 responden dari 3 provinsi dan 8 kota, untuk mendukung pemahaman pasar dan positioning.',
     output: 'Branding/marketing plan, identitas brand, riset pasar, positioning, konten, dan materi pemasaran digital.',
     evidenceNote: 'Kontribusi tim yang belum terbukti secara individual ditulis sebagai “terlibat dalam”; tidak mengklaim seluruh hasil tim sebagai karya pribadi.', gallery: [],
@@ -94,7 +114,7 @@ export const projects: Project[] = [
   },
   {
     id: 'video', title: 'VIDEO PRODUCTION & CREATIVE CONTENT', category: 'Video Production · Scriptwriting · Video Editing', filter: 'Video & Creative', visual: 'video',
-    description: 'Delapan karya video, diproduksi secara solo dari konsep hingga hasil akhir.', status: 'Produksi solo · Tanpa bantuan produksi',
+    description: 'Delapan karya video, diproduksi secara solo dari konsep hingga hasil akhir.', status: 'End-to-End Solo Production · Tanpa bantuan produksi',
     overview: 'Seluruh proses produksi karya video dikerjakan sendiri tanpa bantuan, mulai dari pengembangan konsep hingga produksi akhir.',
     role: 'Concept Developer · Scriptwriter · Producer · Editor.',
     pipeline: ['Concept Development', 'Scriptwriting', 'Scene Planning', 'Voice Over Script', 'Production', 'Video Editing', 'Final Production'],
@@ -155,7 +175,7 @@ export const certificates = [
   ['SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
   ['Advanced SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
   ['Gold Medal — IITE', '2024', 'Prestasi', 'IITE'],
-].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer }));
+].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: '' }));
 export const education = [
   { degree: 'D4 Bisnis Digital', school: 'Politeknik Takumi', date: '2022–2026', detail: 'IPK 3,52', focus: 'Digital Marketing, Business Analytics, Data Science, Market Research, dan Technology Innovation.' },
   { degree: 'Teknik Otomotif', school: 'SMKN 1 Ampelgading', date: '2013–2016', detail: '', focus: 'Pendidikan teknik otomotif.' },
