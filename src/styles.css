@@ -646,3 +646,20 @@
 .video-grid { grid-template-columns: 1fr; }
 .video-thumbnail { aspect-ratio: 16/9; }
 }
+/* Perbaikan ukuran logo utama navbar */
+.portfolio-header .brand-logo {
+display: block;
+width: 64px;
+height: 64px;
+flex: 0 0 64px;
+object-fit: contain;
+}
+
+/* Logo lebih kecil pada layar HP */
+@media (max-width: 520px) {
+.portfolio-header .brand-logo {
+width: 52px;
+height: 52px;
+flex-basis: 52px;
+}
+}
