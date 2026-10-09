@@ -1,6 +1,9 @@
 // Real files uploaded to public/images/portfolio/
 // Map each asset base name to its actual file extension.
-export const replacedAssets: Record<string, 'jpg' | 'png' | 'webp'> = {
+export const replacedAssets: Record<
+  string,
+  'jpg' | 'png' | 'webp' | 'svg'
+> = {
   'tarmuji-profile': 'svg',
   'tarmuji-graduation-1': 'svg',
   'tarmuji-graduation-2': 'svg',
@@ -13,5 +16,5 @@ export function asset(name: string): string {
 }
 
 export function isPlaceholderAsset(src?: string): boolean {
-  return !!src && src.startsWith(BASE) && src.endsWith('.svg');
+  return !!src && src.startsWith(BASE) && false;
 }
