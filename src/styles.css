@@ -645,3 +645,38 @@ button,a,summary { -webkit-tap-highlight-color: transparent; }
   .video-grid { grid-template-columns: 1fr; }
   .video-thumbnail { aspect-ratio: 16/9; }
 }
+
+/* Perapian logo dan navigasi */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand-symbol {
+  display: none;
+}
+
+.wordmark::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  background: url("/favicon.svg") center / contain no-repeat;
+}
+
+@media (max-width: 520px) {
+  .wordmark {
+    font-size: 16px;
+    gap: 6px;
+  }
+
+  .wordmark::before {
+    width: 26px;
+    height: 26px;
+  }
+}
