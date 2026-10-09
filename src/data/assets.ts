@@ -5,6 +5,21 @@
 
 // Daftarkan ekstensi sesuai file yang benar-benar tersedia.
 // Nama file harus sama persis, termasuk huruf besar/kecil.
+
+export const replacedAssets: Record<
+  string,
+  'jpg' | 'png' | 'webp' | 'svg'
+> = {
+  'tarmuji-profile': 'svg',
+  'tarmuji-graduation-1': 'svg',
+  'tarmuji-graduation-2': 'svg',
+
+  'certificate-bnsp-social-media': 'jpg',
+  'certificate-jlpt-n4': 'jpg',
+
+  'mega-apps-landing': 'jpg',
+  'mega-apps-population-system': 'jpg',
+};
 export const replacedAssets: Record<
   string,
   'jpg' | 'png' | 'webp' | 'svg'
