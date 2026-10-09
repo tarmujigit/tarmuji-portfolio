@@ -1,6 +1,10 @@
-// Real files uploaded to public/images/portfolio/ are registered here (base name -> extension).
-// Anything not listed resolves to its labeled SVG placeholder, which is never presented as original work.
-export const replacedAssets: Record<string, 'jpg' | 'png' | 'webp'> = {};
+// Real files uploaded to public/images/portfolio/
+// Map each asset base name to its actual file extension.
+export const replacedAssets: Record<string, 'jpg' | 'png' | 'webp'> = {
+  'tarmuji-profile': 'jpg',
+  'tarmuji-graduation-1': 'jpg',
+  'tarmuji-graduation-2': 'jpg',
+};
 
 const BASE = '/images/portfolio/';
 
