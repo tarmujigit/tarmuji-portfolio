@@ -1,6 +1,7 @@
 import { ArrowUpRight, Play, X } from 'lucide-react';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import { SafeImage } from './safe-image';
 import { ProjectArt } from './project-art';
 import { ProjectGallery, ProjectMetrics, ProjectPipeline } from './evidence';
 import type { Project } from '@/data/portfolio';
@@ -26,7 +27,7 @@ export function CaseStudy({ project, onClose }: { project: Project | null; onClo
     <ProjectPipeline project={project} />
     {project.highlights && <section className="case-highlights"><h3>Sorotan Pengembangan</h3><div className="skill-chips">{project.highlights.map(item => <span className="skill-chip" key={item}>{item}</span>)}</div></section>}
     {project.videos && <section className="video-library"><h3>Karya Video · End-to-End Solo Production</h3><div className="video-grid">{project.videos.map((work, i) => <article className="video-work" key={work.title}>
-      <div className="video-thumbnail">{work.thumbnail ? <img src={work.thumbnail} alt={`Thumbnail asli ${work.title}`} loading="lazy" /> : <><span className="video-index">{String(i + 1).padStart(2, '0')}</span><span className="video-thumbnail-label">PRODUKSI SOLO</span><span className="video-preview-status">Thumbnail belum dipublikasikan</span></>}</div>
+      <div className="video-thumbnail"><SafeImage src={work.thumbnail} alt={`Thumbnail asli ${work.title}`} label={`Thumbnail ${work.title}`} fallback={<><span className="video-index">{String(i + 1).padStart(2, '0')}</span><span className="video-thumbnail-label">PRODUKSI SOLO</span><span className="video-preview-status">Thumbnail belum dipublikasikan</span></>} /></div>
       <div className="video-info"><h4>{work.title}</h4>{work.url ? <Button variant="quiet" asChild><a href={work.url} target="_blank" rel="noopener noreferrer" aria-label={`Tonton Karya: ${work.title}`}><Play />Tonton Karya<ArrowUpRight /></a></Button> : <><Button variant="quiet" disabled aria-label={`Tonton Karya: ${work.title} — tautan belum tersedia`}><Play />Tonton Karya</Button><p>Tautan atau berkas video belum tersedia.</p></>}</div></article>)}</div></section>}
     <ProjectGallery project={project} /></div>
   </DialogContent></Dialog>;
