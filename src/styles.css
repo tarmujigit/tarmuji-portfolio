@@ -67,7 +67,6 @@ button,a,summary { -webkit-tap-highlight-color: transparent; }
 .portfolio-header { position: fixed; z-index: 40; top: 24px; left: 50%; transform: translateX(-50%); width: min(1220px, calc(100% - 48px)); transition: background .3s, border-color .3s; border: 1px solid transparent; border-radius: 100px; }
 .portfolio-header.scrolled { background: var(--glass); border-color: var(--border); backdrop-filter: blur(20px); box-shadow: var(--shadow-glass); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; padding: 0 24px; gap: 24px;
-.brand-symbol { color: var(--violet); font-size: 30px; line-height: 1; }
 .desktop-links { display: flex; gap: 26px; }
 .desktop-links a { color: var(--muted-foreground); font-size: 12px; transition: color .2s; }
 .desktop-links a:hover,.desktop-links a.active { color: var(--foreground); }
