@@ -657,12 +657,5 @@ button,a,summary { -webkit-tap-highlight-color: transparent; }
 .brand-symbol {
   display: none;
 }
-
-.wordmark::before {
-  content: "";
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
   background: url("/favicon.svg") center / contain no-repeat;
 }
