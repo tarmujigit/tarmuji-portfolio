@@ -15,8 +15,8 @@ export const replacedAssets: Record<
   // SERTIFIKAT
   'certificate-bnsp-social-media': 'jpg',
   'certificate-jlpt-n4': 'jpg',
-  'certificate-iite-2024': 'svg',
-  'certificate-kaggle-pandas': 'svg',
+  'certificate-iite-2024': 'jpg',
+  'certificate-kaggle-pandas': 'jpg',
 
   // KOKOROLENS
   'kokorolens-dashboard': 'svg',
