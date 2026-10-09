@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { isPlaceholderAsset } from '@/data/assets';
 import { certificates, education, navigation, profile, projects, projectEvidence, storyAssets } from '@/data/portfolio';
 
 describe('Approved portfolio evidence', () => {
@@ -31,9 +32,10 @@ describe('Approved portfolio evidence', () => {
     expect(profile.stats[2]?.context).toBe('Pada akhir periode pengelolaan');
     expect(projectEvidence['kokorolens']).toHaveLength(2);
     expect(projectEvidence['mega']).toHaveLength(2);
-    expect(Object.values(projectEvidence).flat().every(asset => !asset.src)).toBe(true);
-    expect(storyAssets.every(asset => !asset.src)).toBe(true);
-    expect(certificates.every(certificate => !certificate.image)).toBe(true);
+    expect(Object.values(projectEvidence).flat().every(asset => !asset.src || isPlaceholderAsset(asset.src))).toBe(true);
+    expect(storyAssets.every(asset => isPlaceholderAsset(asset.src))).toBe(true);
+    expect(certificates.every(certificate => !certificate.image || isPlaceholderAsset(certificate.image))).toBe(true);
+    expect(isPlaceholderAsset(profile.portrait)).toBe(true);
     expect(projects.map(project => project.id)).toEqual(['kokorolens', 'mega', 'vinix', 'seo', 'roblox', 'video', 'linear', 'svm', 'ayumi']);
   });
 });

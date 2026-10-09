@@ -1,9 +1,10 @@
+import { asset } from './assets';
 export const profile = {
   name: 'Tarmuji', year: 2026,
   positioning: 'Digital Business & Creative Professional',
   headline: 'Dari data, ide, dan kreativitas menjadi pengalaman digital.',
   introduction: 'Pengalaman lintas digital marketing, data analytics, creative content, technology, dan manufaktur Jepang membentuk cara saya memahami masalah dan mengembangkan solusi.',
-  portrait: '', graduation: '',
+  portrait: asset('tarmuji-profile'), graduation: '',
   contact: { email: 'Tarmujimm18@gmail.com', linkedin: 'https://www.linkedin.com/in/tarmuji-mongel/' },
   stats: [
     { value: '900 JAM', label: 'Magang industri VINIX7', context: '28 Agu–28 Des 2025' },
@@ -39,21 +40,22 @@ export type EvidenceAsset = { src?: string; alt: string; label: string };
 export type VideoWork = { title: string; url?: string; thumbnail?: string };
 // Populate src only with approved original media; empty slots are never work samples.
 export const storyAssets: EvidenceAsset[] = [
-  { label: 'Perjalanan pendidikan', alt: 'Tarmuji saat wisuda di Politeknik Takumi' },
+  { label: 'Wisuda Politeknik Takumi · 1', alt: 'Tarmuji saat wisuda di Politeknik Takumi', src: asset('tarmuji-graduation-1') },
+  { label: 'Wisuda Politeknik Takumi · 2', alt: 'Tarmuji saat wisuda di Politeknik Takumi', src: asset('tarmuji-graduation-2') },
 ];
 export const projectEvidence: Record<string, EvidenceAsset[]> = {
   kokorolens: [
-    { label: 'Dashboard analisis sentimen', alt: 'Screenshot asli dashboard KOKOROLENS' },
-    { label: 'Evaluasi model', alt: 'Screenshot asli evaluasi model KOKOROLENS' },
+    { label: 'Dashboard analisis sentimen', alt: 'Screenshot asli dashboard KOKOROLENS', src: asset('kokorolens-dashboard') },
+    { label: 'Evaluasi model', alt: 'Screenshot asli evaluasi model KOKOROLENS', src: asset('kokorolens-model-evaluation') },
   ],
   mega: [
-    { label: 'Landing UI', alt: 'Screenshot asli landing UI MEGA APPS' },
-    { label: 'Sistem Informasi Kependudukan', alt: 'Screenshot asli Sistem Informasi Kependudukan MEGA APPS' },
+    { label: 'Landing UI', alt: 'Screenshot asli landing UI MEGA APPS', src: asset('mega-apps-landing') },
+    { label: 'Sistem Informasi Kependudukan', alt: 'Screenshot asli Sistem Informasi Kependudukan MEGA APPS', src: asset('mega-apps-population-system') },
   ],
-  vinix: [{ label: 'Brand identity & konten', alt: 'Karya asli Tarmuji selama magang VINIX7' }],
-  seo: [{ label: 'Artikel & publikasi', alt: 'Bukti asli artikel SEO karya Tarmuji' }],
-  roblox: [{ label: 'Gameplay & pengembangan', alt: 'Screenshot asli pengembangan Roblox oleh Tarmuji' }],
-  ayumi: [{ label: 'Desain Instagram', alt: 'Desain Instagram Ayumi yang dibuat Tarmuji' }],
+  vinix: [{ label: 'Materi promosi', alt: 'Materi promosi VINIX7 yang melibatkan Tarmuji', src: asset('vinix7-promo') }, { label: 'Brand strategy', alt: 'Dokumen brand strategy VINIX7', src: asset('vinix7-brand-strategy') }],
+  seo: [{ label: 'Peringkat Google · “gaji magang Jepang”', alt: 'Screenshot asli peringkat Google artikel karya Tarmuji', src: asset('seo-google-ranking') }, { label: 'Workflow konten', alt: 'Workflow pengelolaan konten SEO', src: asset('seo-workflow') }],
+  roblox: [{ label: 'Mount Higanbana', alt: 'Screenshot asli Mount Higanbana', src: asset('roblox-mount-higanbana') }, { label: 'Roblox Studio scripting', alt: 'Screenshot asli scripting di Roblox Studio', src: asset('roblox-studio-scripting') }, { label: 'Environment', alt: 'Screenshot asli environment Roblox', src: asset('roblox-environment') }],
+  ayumi: [{ label: 'Desain Instagram', alt: 'Desain Instagram Ayumi yang dibuat Tarmuji', src: asset('ayumi-instagram-grid') }],
 };
 export type Project = {
   id: string; title: string; category: string; filter: string; description: string; visual: string; status: string;
@@ -119,14 +121,14 @@ export const projects: Project[] = [
     role: 'Concept Developer · Scriptwriter · Producer · Editor.',
     pipeline: ['Concept Development', 'Scriptwriting', 'Scene Planning', 'Voice Over Script', 'Production', 'Video Editing', 'Final Production'],
     videos: [
-      { title: 'Video Lomba IITE — Mega Apps', url: 'https://youtu.be/c_s6QLaJPLo?si=Lcx3X1mriudrCEPl' },
-      { title: 'Video Perkenalan Angkatan PKKMB Politeknik Takumi 2023', url: 'https://drive.google.com/file/d/1NDS5E6kb1TKl8_iVpD-m4KdFw-SI0TMG/view?usp=sharing' },
-      { title: 'Video Klip Mars Politeknik Takumi', url: 'https://drive.google.com/file/d/1rXB04Pk5CjbHxLHwxwqBhcKh__djp4G1/view?usp=sharing' },
-      { title: 'Video Perkenalan BEM Politeknik Takumi 2024', url: 'https://drive.google.com/file/d/1T9gz6J59LetH9jnIXlqgmkIFEZGRVbEU/view?usp=sharing' },
-      { title: 'Video Promosi VINIX7' },
-      { title: 'Video Podcast — PT Ayumi Nihongo Gakkou', url: 'https://youtu.be/zgcHf77XT7M?si=6Q13FSTHFAeeHQ5R' },
-      { title: 'Dokumentasi 送別会 (Soubetsukai) — JFT-Basic Batch 4 PT Ayumi Nihongo Gakkou', url: 'https://youtu.be/vLw0ugsxnqc?si=mjGkJ2JBT1KS9imR' },
-      { title: 'Video Promosi PT Ayumi Nihongo Gakkou', url: 'https://drive.google.com/file/d/1ip7C8WDshF8tfoOV3RDkZ8-OqsufT_3w/view?usp=sharing' },
+      { title: 'Video Lomba IITE — Mega Apps', url: 'https://youtu.be/c_s6QLaJPLo?si=Lcx3X1mriudrCEPl', thumbnail: asset('video-iite-mega-apps') },
+      { title: 'Video Perkenalan Angkatan PKKMB Politeknik Takumi 2023', url: 'https://drive.google.com/file/d/1NDS5E6kb1TKl8_iVpD-m4KdFw-SI0TMG/view?usp=sharing', thumbnail: asset('video-pkkmb-2023') },
+      { title: 'Video Klip Mars Politeknik Takumi', url: 'https://drive.google.com/file/d/1rXB04Pk5CjbHxLHwxwqBhcKh__djp4G1/view?usp=sharing', thumbnail: asset('video-mars-politeknik-takumi') },
+      { title: 'Video Perkenalan BEM Politeknik Takumi 2024', url: 'https://drive.google.com/file/d/1T9gz6J59LetH9jnIXlqgmkIFEZGRVbEU/view?usp=sharing', thumbnail: asset('video-bem-2024') },
+      { title: 'Video Promosi VINIX7', thumbnail: asset('video-vinix7-promo') },
+      { title: 'Video Podcast — PT Ayumi Nihongo Gakkou', url: 'https://youtu.be/zgcHf77XT7M?si=6Q13FSTHFAeeHQ5R', thumbnail: asset('video-ayumi-podcast') },
+      { title: 'Dokumentasi 送別会 (Soubetsukai) — JFT-Basic Batch 4 PT Ayumi Nihongo Gakkou', url: 'https://youtu.be/vLw0ugsxnqc?si=mjGkJ2JBT1KS9imR', thumbnail: asset('video-soubetsukai') },
+      { title: 'Video Promosi PT Ayumi Nihongo Gakkou', url: 'https://drive.google.com/file/d/1ip7C8WDshF8tfoOV3RDkZ8-OqsufT_3w/view?usp=sharing', thumbnail: asset('video-ayumi-promo') },
     ], gallery: [],
   },
   {
@@ -165,6 +167,10 @@ export const leadership = [
 ];
 export const achievement = { title: 'Gold Medal', event: '4th International Innovation Technology Expo (IITE) 2024', category: 'Ready Made Product', product: 'Mega Apps', certificate: '1868 / DI / INDO / VII / 2024' };
 export const certificateCategories = ['Semua', 'Bahasa', 'BNSP', 'Data & Python', 'Digital Marketing & SEO', 'Prestasi'];
+const certificateImages: Record<string, string> = {
+  'JLPT N4': asset('certificate-jlpt-n4'), 'BNSP Social Media Marketing': asset('certificate-bnsp-social-media'),
+  'Pandas Data Analysis': asset('certificate-kaggle-pandas'), 'Gold Medal — IITE': asset('certificate-iite-2024'),
+};
 export const certificates = [
   ['JLPT N4', '2022', 'Bahasa', ''],
   ['BNSP Social Media Marketing', '2026', 'BNSP', 'BNSP'],
@@ -175,7 +181,7 @@ export const certificates = [
   ['SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
   ['Advanced SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
   ['Gold Medal — IITE', '2024', 'Prestasi', 'IITE'],
-].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: '' }));
+].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: certificateImages[name ?? ''] ?? '' }));
 export const education = [
   { degree: 'D4 Bisnis Digital', school: 'Politeknik Takumi', date: '2022–2026', detail: 'IPK 3,52', focus: 'Digital Marketing, Business Analytics, Data Science, Market Research, dan Technology Innovation.' },
   { degree: 'Teknik Otomotif', school: 'SMKN 1 Ampelgading', date: '2013–2016', detail: '', focus: 'Pendidikan teknik otomotif.' },
