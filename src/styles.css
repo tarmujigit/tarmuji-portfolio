@@ -668,15 +668,3 @@ button,a,summary { -webkit-tap-highlight-color: transparent; }
   flex-shrink: 0;
   background: url("/favicon.svg") center / contain no-repeat;
 }
-
-@media (max-width: 520px) {
-  .wordmark {
-    font-size: 16px;
-    gap: 6px;
-  }
-
-  .wordmark::before {
-    width: 20px;
-    height: 20px;
-  }
-}
