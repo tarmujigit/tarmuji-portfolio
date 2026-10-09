@@ -1,9 +1,9 @@
 // Real files uploaded to public/images/portfolio/
 // Map each asset base name to its actual file extension.
 export const replacedAssets: Record<string, 'jpg' | 'png' | 'webp'> = {
-  'tarmuji-profile': 'jpg',
-  'tarmuji-graduation-1': 'jpg',
-  'tarmuji-graduation-2': 'jpg',
+  'tarmuji-profile': 'svg',
+  'tarmuji-graduation-1': 'svg',
+  'tarmuji-graduation-2': 'svg',
 };
 
 const BASE = '/images/portfolio/';
