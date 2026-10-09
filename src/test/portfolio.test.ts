@@ -29,8 +29,8 @@ describe('Approved portfolio evidence', () => {
     expect(profile.stats.map(stat => stat.value)).toEqual(['900 JAM', '94,12%', '5.600+', 'GOLD MEDAL']);
     expect(profile.stats[1]?.context).toContain('51 komentar');
     expect(profile.stats[2]?.context).toBe('Pada akhir periode pengelolaan');
-    expect(projectEvidence.kokorolens).toHaveLength(2);
-    expect(projectEvidence.mega).toHaveLength(2);
+    expect(projectEvidence['kokorolens']).toHaveLength(2);
+    expect(projectEvidence['mega']).toHaveLength(2);
     expect(Object.values(projectEvidence).flat().every(asset => !asset.src)).toBe(true);
     expect(storyAssets.every(asset => !asset.src)).toBe(true);
     expect(certificates.every(certificate => !certificate.image)).toBe(true);
