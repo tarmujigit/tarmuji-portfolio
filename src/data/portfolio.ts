@@ -102,6 +102,7 @@ export const projects: Project[] = [
   },
   {
     id: 'seo', title: 'SEO & CONTENT MANAGEMENT', category: 'SEO · Content Writing · Content Management · WordPress · Account Management', filter: 'SEO & Konten', visual: 'seo',
+    cover: { src: asset('seo-content-management'), alt: 'Visual SEO dan content management' },
     description: 'Dari perencanaan artikel hingga koordinasi akun dan publikasi WordPress.', status: 'Account Manager & Author',
     overview: 'Pengelolaan konten dan koordinasi akun untuk PT Nagomi Kaigo Gakkou, Politeknik Takumi, PT Minori, dan PT Akari Jawa Indonesia (AJI).',
     role: 'Account Manager & Author.', pipeline: ['Perencanaan', 'Penulisan', 'Quality Control', 'Revisi', 'Koordinasi internal & eksternal', 'Publikasi WordPress'],
@@ -111,6 +112,7 @@ export const projects: Project[] = [
   },
   {
     id: 'roblox', title: 'ROBLOX DEVELOPMENT', category: 'Roblox Studio · Luau · Game Development', filter: 'Game Development', visual: 'roblox',
+    cover: { src: asset('roblox-development'), alt: 'Visual Roblox game development' },
     description: 'Pengembangan sistem gameplay, antarmuka, audio, dan lingkungan permainan.', status: 'Freelance / Proyek Pribadi · Jan–Mei 2026',
     overview: 'Pengembangan dan scripting Roblox pada Januari–Mei 2026. Mount Higanbana adalah salah satu proyek dalam pengalaman ini, bukan satu-satunya proyek.',
     role: 'Roblox Developer & Scripter.', tools: 'Roblox Studio, Luau / Lua.',
@@ -119,6 +121,7 @@ export const projects: Project[] = [
   },
   {
     id: 'video', title: 'VIDEO PRODUCTION & CREATIVE CONTENT', category: 'Video Production · Scriptwriting · Video Editing', filter: 'Video & Creative', visual: 'video',
+    cover: { src: asset('video-production-creative'), alt: 'Visual video production dan creative content' },
     description: 'Delapan karya video, diproduksi secara solo dari konsep hingga hasil akhir.', status: 'End-to-End Solo Production · Tanpa bantuan produksi',
     overview: 'Seluruh proses produksi karya video dikerjakan sendiri tanpa bantuan, mulai dari pengembangan konsep hingga produksi akhir.',
     role: 'Concept Developer · Scriptwriter · Producer · Editor.',
@@ -136,6 +139,7 @@ export const projects: Project[] = [
   },
   {
     id: 'linear', title: 'MACHINE LEARNING — LINEAR REGRESSION', category: 'Machine Learning · Pandas · Eksplorasi Data', filter: 'Data & Machine Learning', visual: 'data',
+    cover: { src: asset('linear-regression'), alt: 'Visual machine learning linear regression' },
     description: 'Eksplorasi dataset gaji Indonesia dan perbandingan rata-rata gaji antarwilayah.', status: 'Proyek Machine Learning Akademik',
     overview: 'Proyek akademik menggunakan Salary Indonesia.csv dengan 870 baris dan 3 kolom: REGION, SALARY, YEAR.',
     process: 'Eksplorasi menggunakan Pandas, pemeriksaan missing value, visualisasi rata-rata gaji per wilayah, dan penyaringan regional.',
@@ -144,6 +148,7 @@ export const projects: Project[] = [
   },
   {
     id: 'svm', title: 'MACHINE LEARNING — SVM', category: 'Machine Learning · SVM · Kualitas Air', filter: 'Data & Machine Learning', visual: 'data',
+    cover: { src: asset('svm-machine-learning'), alt: 'Visual machine learning Support Vector Machine' },
     description: 'Alur klasifikasi potabilitas air menggunakan Support Vector Machine.', status: 'Proyek Machine Learning Akademik',
     overview: 'Dataset kualitas air mencakup pH, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic Carbon, Trihalomethanes, Turbidity, dan Potability.',
     pipeline: ['Pandas / NumPy', 'Preprocessing', 'StandardScaler', 'train_test_split 80/20', 'SVC linear', 'accuracy_score'],
@@ -153,6 +158,7 @@ export const projects: Project[] = [
   },
   {
     id: 'ayumi', title: 'PT AYUMI NIHONGO GAKKOU', category: 'Administration · Digital Marketing · Social Media', filter: 'Brand & Marketing', visual: 'ayumi',
+    cover: { src: asset('ayumi-social-media'), alt: 'Visual social media marketing PT Ayumi Nihongo Gakkou' },
     description: 'Administrasi, pengelolaan media sosial, dan konten pemasaran digital.', status: 'Pengalaman Profesional · Feb 2024–Agu 2025',
     overview: 'Pengalaman administrasi dan digital marketing di PT Ayumi Nihongo Gakkou.', role: 'Administration & Digital Marketing.',
     process: 'Pengelolaan media sosial dan pembuatan konten pemasaran selama periode kerja.',
