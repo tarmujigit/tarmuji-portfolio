@@ -189,7 +189,7 @@ export const certificates = [
   ['Gold Medal — IITE', '2024', 'Prestasi', 'IITE'],
    ['Intro To Programming', '2023', 'Data & Python', ''],
    ['Strategic Marketing & Communication', '2023', 'Digital Marketing & SEO', 'LEFA'],
-   ['TOEFL Prediction (Score 497)', '2025', 'Bahasa', ''],
+   ['TOEFL Prediction (Score 520)', '2025', 'Bahasa', ''],
    ['Administrasi dan Tata Kelola Perkantoran', '2025', 'Profesional & Manajemen', ''],
    ['Public Speaking (CPS)', '2025', 'Profesional & Manajemen', ''],
    ['Corporate Trainer (C.CTr)', '2025', 'Profesional & Manajemen', ''],
