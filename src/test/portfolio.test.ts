@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { isPlaceholderAsset } from '@/data/assets';
-import { certificates, education, navigation, profile, projects, projectEvidence, storyAssets } from '@/data/portfolio';
+import { certificateCategories, certificates, education, navigation, profile, projects, projectEvidence, storyAssets } from '@/data/portfolio';
 
 describe('Approved portfolio evidence', () => {
   it('keeps the featured order and explicit navigation IDs', () => {
@@ -24,7 +24,12 @@ describe('Approved portfolio evidence', () => {
     expect(education[1]?.date).toBe('2013–2016');
     expect(education[0]?.detail).toBe('IPK 3,52');
     expect(profile.contact.email).toBe('Tarmujimm18@gmail.com');
-    expect(certificates.length).toBeLessThan(12);
+    expect(certificates).toHaveLength(23);
+    expect(new Set(certificates.map(c => `${c.name}-${c.year}`)).size).toBe(23);
+    expect(certificates.every(c => certificateCategories.includes(c.category ?? ''))).toBe(true);
+    expect(certificates.find(c => c.name === 'TOEFL Prediction (Score 497)')?.year).toBe('2025');
+    expect(certificates.filter(c => c.name === 'Digital Marketing').map(c => c.year)).toEqual(['2023', '2025']);
+    expect(certificates.find(c => c.name === 'Digital Marketing' && c.year === '2025')?.image).toBe('');
   });
   it('keeps career stats contextual and original media slots honest', () => {
     expect(profile.stats.map(stat => stat.value)).toEqual(['900 JAM', '94,12%', '5.600+', 'GOLD MEDAL']);
@@ -32,9 +37,9 @@ describe('Approved portfolio evidence', () => {
     expect(profile.stats[2]?.context).toBe('Pada akhir periode pengelolaan');
     expect(projectEvidence['kokorolens']).toHaveLength(2);
     expect(projectEvidence['mega']).toHaveLength(2);
-    expect(Object.values(projectEvidence).flat().every(asset => !asset.src || isPlaceholderAsset(asset.src))).toBe(true);
+    expect(projectEvidence['mega']?.map(asset => asset.src)).toEqual(['/images/portfolio/mega-apps-landing.jpg', '/images/portfolio/mega-apps-population-system.jpg']);
     expect(storyAssets.every(asset => isPlaceholderAsset(asset.src))).toBe(true);
-    expect(certificates.every(certificate => !certificate.image || isPlaceholderAsset(certificate.image))).toBe(true);
+    expect(projects.filter(project => project.cover).map(project => project.id)).toEqual(['kokorolens', 'mega', 'vinix']);
     expect(isPlaceholderAsset(profile.portrait)).toBe(true);
     expect(projects.map(project => project.id)).toEqual(['kokorolens', 'mega', 'vinix', 'seo', 'roblox', 'video', 'linear', 'svm', 'ayumi']);
   });
