@@ -56,7 +56,7 @@
 --shadow-portrait: 0 0 35px color-mix(in oklch, var(--violet) 6%, transparent);
 }
 
-- { box-sizing: border-box; border-color: var(--border); }
+* { box-sizing: border-box; border-color: var(--border); }
   html { scroll-behavior: smooth; scroll-padding-top: 110px; }
   body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); font-size: 14px; -webkit-font-smoothing: antialiased; }
   ::selection { background: var(--primary); color: var(--foreground); }
@@ -400,6 +400,7 @@
 .project-grid { gap: 40px 28px; align-items: start; }
 .project-card { position: relative; min-width: 0; }
 .project-cover-wrap { position: relative; }
+.project-cover-wrap:has(.verified-cover) .project-feature-label { position: static; margin-top: 10px; }
 .project-art { border-radius: 6px; }
 .project-summary-cover { height: 260px; padding: 24px; background: var(--surface-editorial); position: relative; }
 .project-summary-cover::after { content: ''; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px); background-size: 56px 56px; opacity: .14; }
