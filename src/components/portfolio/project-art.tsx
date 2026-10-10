@@ -9,5 +9,5 @@ export function ProjectArt({ project, useCardCover = false }: { project: Project
     <div className="cover-bottom"><span>{project.status}</span><span className="cover-number">{project.id === 'kokorolens' ? 'NLP' : project.id === 'video' ? 'SOLO' : project.id === 'svm' ? 'SVM' : '↗'}</span></div>
   </div>;
   if (!cover) return summary;
-  return <SafeImage src={cover.src} alt={cover.alt} label={project.title} className="verified-cover" fallback={summary} />;
+  return <SafeImage src={cover.src} alt={cover.alt} label={project.title} className="project-art w-full object-cover" fallback={summary} />;
 }
