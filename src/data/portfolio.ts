@@ -4,7 +4,7 @@ export const profile = {
   positioning: 'Digital Business & Creative Professional',
   headline: 'Dari data, ide, dan kreativitas menjadi pengalaman digital.',
   introduction: 'Pengalaman lintas digital marketing, data analytics, creative content, technology, dan manufaktur Jepang membentuk cara saya memahami masalah dan mengembangkan solusi.',
-  portrait: asset('tarmuji-profile'), graduation '',
+  portrait: asset('tarmuji-profile'), graduation: '',
   contact: { email: 'Tarmujimm18@gmail.com', linkedin: 'https://www.linkedin.com/in/tarmuji-mongel/' },
   stats: [
     { value: '4 Tahun+ Industri Manufactur', label: 'Perusahaan Manufactur Jepang Di Indonesia dan Jepang', context: 'Start Form 2017' },
