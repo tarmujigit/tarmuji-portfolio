@@ -8,7 +8,7 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: (pr
   const flagship = project.id === 'kokorolens';
   const featured = project.id === 'mega';
   return <article className={`project-card ${flagship ? 'flagship-project' : ''} ${featured ? 'achievement-project' : ''}`}>
-    <div className="project-cover-wrap"><ProjectArt project={project} />{flagship && <span className="project-feature-label">PROYEK UTAMA / TUGAS AKHIR</span>}{featured && <span className="project-feature-label award-label"><Award /> GOLD MEDAL · IITE 2024</span>}</div>
+    <div className="project-cover-wrap"><ProjectArt project={project} useCardCover />{flagship && <span className="project-feature-label">PROYEK UTAMA / TUGAS AKHIR</span>}{featured && <span className="project-feature-label award-label"><Award /> GOLD MEDAL · IITE 2024</span>}</div>
     <div className="project-info"><div className="project-category">{project.category}</div><div className="project-name-row"><h3>{project.title}</h3><ArrowUpRight aria-hidden="true" /></div><p>{project.description}</p><div className="project-card-status">{project.status}</div>
     {featured && <p className="featured-role">Ketua Kelompok · Business Analysis, Data Analysis, Research, UI/UX, Presentation</p>}
     {flagship && <><ProjectMetrics project={project} /><p className="card-evidence-note">Hasil dataset pengujian, bukan performa universal model.</p><ProjectPipeline project={project} /></>}

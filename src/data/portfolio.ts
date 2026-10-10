@@ -61,12 +61,13 @@ export type Project = {
   id: string; title: string; category: string; filter: string; description: string; visual: string; status: string;
   overview: string; challenge?: string; role?: string; process?: string; tools?: string; output?: string; result?: string; team?: string;
   pipeline?: string[]; highlights?: string[]; metrics?: { label: string; value: string }[]; evidenceNote?: string;
-  videos?: VideoWork[]; gallery: { src: string; alt: string }[];
+   cover?: { src: string; alt: string }; videos?: VideoWork[]; gallery: { src: string; alt: string }[];
 };
 export const projectCategories = ['Semua', 'Data & Machine Learning', 'Bisnis & Produk', 'Brand & Marketing', 'SEO & Konten', 'Game Development', 'Video & Creative'];
 export const projects: Project[] = [
   {
     id: 'kokorolens', title: 'KOKOROLENS', category: 'Data Analytics · Machine Learning · NLP · Web Application', filter: 'Data & Machine Learning', visual: 'data',
+    cover: { src: asset('kokorolens-dashboard'), alt: 'Tampilan KOKOROLENS dari aset dashboard asli' },
     description: 'Sistem Analisis Sentimen Media Sosial Berbasis Web.', status: 'Tugas Akhir / Proyek Individual — 2026',
     overview: 'KOKOROLENS adalah sistem berbasis web untuk mengolah komentar media sosial menjadi analisis sentimen, visualisasi, insight, dan rekomendasi AI.',
     role: 'Peneliti & Pengembang. Proyek individual sebagai tugas akhir tahun 2026.',
@@ -78,6 +79,7 @@ export const projects: Project[] = [
   },
   {
     id: 'mega', title: 'MEGA APPS', category: 'Business Analytics · Digital Business · Product Innovation', filter: 'Bisnis & Produk', visual: 'mega',
+    cover: { src: asset('mega-apps-landing'), alt: 'Tampilan landing UI MEGA APPS' },
     description: 'Konsep produk digital untuk menghubungkan kebutuhan usaha dan komunitas.', status: 'Concept & UI Design · Product Design / Prototype',
     overview: 'Konsep aplikasi tim untuk administrasi usaha kecil dan komunitas di Mega Regency, Cikarang. Produk dirancang dalam bentuk konsep dan prototipe UI, bukan aplikasi produksi yang sepenuhnya fungsional.',
     role: 'Ketua Kelompok. Tanggung jawab: Business Analysis, Data Analysis, Research, UI/UX, dan Presentation.',
@@ -89,6 +91,7 @@ export const projects: Project[] = [
   },
   {
     id: 'vinix', title: 'VINIX7', category: 'Brand Design · Digital Marketing', filter: 'Brand & Marketing', visual: 'vinix',
+    cover: { src: asset('vinix7-promo'), alt: 'Materi promosi magang VINIX7' },
     description: 'Riset pasar, identitas brand, dan konten untuk kebutuhan pemasaran digital.', status: '28 Agu–28 Des 2025 · 900 jam',
     overview: 'Pengalaman Brand Design & Marketer di PT Vinix Seven Aurum. Periode kegiatan 28 Agustus–28 Desember 2025, dengan durasi 900 jam.',
     role: 'Brand Design & Marketer. Terlibat dalam branding dan marketing plan, brand identity, market research, positioning, content creation, dan digital marketing.',
@@ -166,10 +169,13 @@ export const leadership = [
   ['2023 & 2024', 'PIC Divisi Dokumentasi', 'PKKMB Politeknik Takumi'],
 ];
 export const achievement = { title: 'Gold Medal', event: '4th International Innovation Technology Expo (IITE) 2024', category: 'Ready Made Product', product: 'Mega Apps', certificate: '1868 / DI / INDO / VII / 2024' };
-export const certificateCategories = ['Semua', 'Bahasa', 'BNSP', 'Data & Python', 'Digital Marketing & SEO', 'Prestasi'];
+export const certificateCategories = ['Semua', 'Bahasa', 'BNSP', 'Data & Python', 'Digital Marketing & SEO', 'Profesional & Manajemen', 'Prestasi'];
 const certificateImages: Record<string, string> = {
   'JLPT N4': asset('certificate-jlpt-n4'), 'BNSP Social Media Marketing': asset('certificate-bnsp-social-media'),
   'Pandas Data Analysis': asset('certificate-kaggle-pandas'), 'Gold Medal — IITE': asset('certificate-iite-2024'),
+   'Digital Marketing': '/images/portfolio/certificate-minori-digital-marketing-2023.jpg',
+   'SEO Project': '/images/portfolio/certificate-minori-seo-project-2024.jpg',
+   'Strategic Marketing & Communication': '/images/portfolio/certificate-minori-strategic-marketing-communication-2023.jpg',
 };
 export const certificates = [
   ['JLPT N4', '2022', 'Bahasa', ''],
@@ -181,7 +187,21 @@ export const certificates = [
   ['SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
   ['Advanced SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
   ['Gold Medal — IITE', '2024', 'Prestasi', 'IITE'],
-].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: certificateImages[name ?? ''] ?? '' }));
+   ['Intro To Programming', '2023', 'Data & Python', ''],
+   ['Strategic Marketing & Communication', '2023', 'Digital Marketing & SEO', 'LEFA'],
+   ['TOEFL Prediction (Score 497)', '2025', 'Bahasa', ''],
+   ['Administrasi dan Tata Kelola Perkantoran', '2025', 'Profesional & Manajemen', ''],
+   ['Public Speaking (CPS)', '2025', 'Profesional & Manajemen', ''],
+   ['Corporate Trainer (C.CTr)', '2025', 'Profesional & Manajemen', ''],
+   ['Professional Master of Ceremony (CPMC)', '2025', 'Profesional & Manajemen', ''],
+   ['Excel for Data Analysis', '2025', 'Data & Python', ''],
+   ['HR Management Fundamentals', '2025', 'Profesional & Manajemen', ''],
+   ['Marketing in a Digital World', '2025', 'Digital Marketing & SEO', ''],
+   ['Preparing to Manage Human Resources', '2025', 'Profesional & Manajemen', ''],
+   ['Digital Marketing Revolution', '2025', 'Digital Marketing & SEO', ''],
+   ['UKBI Uji Kemahiran Berbahasa Indonesia (Score Level Madya - 548)', '2025', 'Bahasa', ''],
+   ['Digital Marketing', '2025', 'Digital Marketing & SEO', ''],
+ ].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: name === 'Digital Marketing' && year !== '2023' ? '' : certificateImages[name ?? ''] ?? '' }));
 export const education = [
   { degree: 'D4 Bisnis Digital', school: 'Politeknik Takumi', date: '2022–2026', detail: 'IPK 3,52', focus: 'Digital Marketing, Business Analytics, Data Science, Market Research, dan Technology Innovation.' },
   { degree: 'Teknik Otomotif', school: 'SMKN 1 Ampelgading', date: '2013–2016', detail: '', focus: 'Pendidikan teknik otomotif.' },
