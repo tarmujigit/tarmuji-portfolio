@@ -16,6 +16,6 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: (pr
     {project.id === 'seo' && <p className="card-result">#1 Google · satu artikel untuk “gaji magang Jepang”</p>}
     {project.id === 'ayumi' && <p className="card-result">{project.result}</p>}
     <Button variant="quiet" className="case-link" onClick={() => onOpen(project)} aria-label={`Lihat studi kasus: ${project.title}`}>Lihat Studi Kasus <ArrowUpRight /></Button>
-    </div>{(flagship || featured) && <ProjectGallery project={project} />}
+    </div>
   </article>;
 }
