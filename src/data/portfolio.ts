@@ -7,9 +7,9 @@ export const profile = {
   portrait: asset('tarmuji-profile'), graduation: '',
   contact: { email: 'Tarmujimm18@gmail.com', linkedin: 'https://www.linkedin.com/in/tarmuji-mongel/' },
   stats: [
-    { value: '4 Tahun+ Industri Manufactur', label: 'Perusahaan Manufactur Jepang Di Indonesia dan Jepang', context: 'Start Form 2017' },
-    { value: '94,12%', label: 'Accuracy Website Analytic', context: 'Evaluasi dataset · komentar social media' },
-    { value: '100+ Follower Up Per Month', label: 'Social Media PT Ayumi Nihongo Gakkou', context: 'Digitalisasi & Management Social Media' },
+    { value: '8+ Tahun', label: 'Pengalaman Industri & Manufactur', context: 'Perusahaan di Indonesia & Jepang' },
+    { value: '94,12%', label: 'Accuracy Website Analytic Sentimen', context: 'Evaluasi dataset · komentar social media' },
+    { value: '900K+ Engagement / Bulan', label: 'Social Media Engagement', context: 'Digital Marketing PT Ayumi Nihongo Gakkou' },
     { value: 'GOLD MEDAL', label: 'Mega Apps · IITE 2024', context: 'Kategori Ready Made Product' },
   ],
 };
