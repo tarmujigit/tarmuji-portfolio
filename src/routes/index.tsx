@@ -82,18 +82,3 @@ function Index() {
   </main><footer className="container-shell footer"><a href="#home" aria-label="Beranda Tarmuji"><Wordmark /></a><p>© {profile.year} Tarmuji. Seluruh hak cipta dilindungi.</p><a href="#home" className="inline-flex items-center gap-2">Kembali ke atas <ArrowUp size={12} /></a></footer><CaseStudy project={selectedProject} onClose={() => setSelectedProject(null)} /></>;
 }
 function ExperienceRow({ item }: { item: typeof experience[number] }) { return <article className="experience-row"><span className="experience-date">{item.date}</span><div><h3>{item.role}</h3><p>{item.company}</p></div><span className="category-tag">{item.area}</span></article>; }
-.award-emblem {
-  width: 155px;
-  height: 170px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.achievement-photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-    }
