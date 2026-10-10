@@ -1,15 +1,15 @@
 import { asset } from './assets';
 export const profile = {
-  name: 'Tarmuji', year: 2026,
+  name: 'Tarmuji, S.Tr.Bns', year: 2026,
   positioning: 'Digital Business & Creative Professional',
   headline: 'Dari data, ide, dan kreativitas menjadi pengalaman digital.',
   introduction: 'Pengalaman lintas digital marketing, data analytics, creative content, technology, dan manufaktur Jepang membentuk cara saya memahami masalah dan mengembangkan solusi.',
-  portrait: asset('tarmuji-profile'), graduation: '',
+  portrait: asset('tarmuji-profile'), graduation '',
   contact: { email: 'Tarmujimm18@gmail.com', linkedin: 'https://www.linkedin.com/in/tarmuji-mongel/' },
   stats: [
-    { value: '900 JAM', label: 'Magang industri VINIX7', context: '28 Agu–28 Des 2025' },
-    { value: '94,12%', label: 'Accuracy KokoroLens', context: 'Evaluasi dataset · 51 komentar' },
-    { value: '5.600+', label: 'Followers Instagram Ayumi', context: 'Pada akhir periode pengelolaan' },
+    { value: '4 Tahun+ Industri Manufactur', label: 'Perusahaan Manufactur Jepang Di Indonesia dan Jepang', context: 'Start Form 2017' },
+    { value: '94,12%', label: 'Accuracy Website Analytic', context: 'Evaluasi dataset · komentar social media' },
+    { value: '100+ Follower Up Per Month', label: 'Social Media PT Ayumi Nihongo Gakkou', context: 'Digitalisasi & Management Social Media' },
     { value: 'GOLD MEDAL', label: 'Mega Apps · IITE 2024', context: 'Kategori Ready Made Product' },
   ],
 };
