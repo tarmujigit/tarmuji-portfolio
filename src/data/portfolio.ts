@@ -170,13 +170,86 @@ export const leadership = [
 ];
 export const achievement = { title: 'Gold Medal', event: '4th International Innovation Technology Expo (IITE) 2024', category: 'Ready Made Product', product: 'Mega Apps', certificate: '1868 / DI / INDO / VII / 2024' };
 export const certificateCategories = ['Semua', 'Bahasa', 'BNSP', 'Data & Python', 'Digital Marketing & SEO', 'Profesional & Manajemen', 'Prestasi'];
+Penulisan
 const certificateImages: Record<string, string> = {
-  'JLPT N4': asset('certificate-jlpt-n4'), 'BNSP Social Media Marketing': asset('certificate-bnsp-social-media'),
-  'Pandas Data Analysis': asset('certificate-kaggle-pandas'), 'Gold Medal — IITE': asset('certificate-iite-2024'),
-   'Digital Marketing': '/images/portfolio/certificate-minori-digital-marketing-2023.jpg',
-   'SEO Project': '/images/portfolio/certificate-minori-seo-project-2024.jpg',
-   'Strategic Marketing & Communication': '/images/portfolio/certificate-minori-strategic-marketing-communication-2023.jpg',
+  'JLPT N4': asset('certificate-jlpt-n4'),
+  'BNSP Social Media Marketing': asset('certificate-bnsp-social-media'),
+  'Pandas Data Analysis': asset('certificate-kaggle-pandas'),
+  'Gold Medal — IITE': asset('certificate-iite-2024'),
+
+  'Python for Data Science, AI & Development':
+    asset('certificate-coursera-ibm-python-data-science'),
+  'Intro to Data Analytics':
+    asset('certificate-coursera-introduction-data-analytics'),
+  'Intro To Programming':
+    asset('certificate-kaggle-intro-programming'),
+
+  'Digital Marketing':
+    '/images/portfolio/certificate-minori-digital-marketing-2023.jpg',
+  'SEO Project':
+    '/images/portfolio/certificate-minori-seo-project-2024.jpg',
+  'Strategic Marketing & Communication':
+    '/images/portfolio/certificate-minori-strategic-marketing-communication-2023.jpg',
+
+  'TOEFL Prediction (Score 520)':
+    '/images/portfolio/certificate-toefl-prediction.jpg',
+
+  'Administrasi dan Tata Kelola Perkantoran':
+    asset('certificate-administrasi-perkantoran'),
+  'Public Speaking (CPS)':
+    asset('certificate-public-speaking'),
+  'Corporate Trainer (C.CTr)':
+    asset('certificate-corporate-trainer'),
+  'Professional Master of Ceremony (CPMC)':
+    asset('certificate-professional-master-of-ceremony'),
+
+  'Excel for Data Analysis':
+    asset('certificate-coursera-ibm-excel-data-analysis'),
+  'HR Management Fundamentals':
+    asset('certificate-coursera-hr-management-fundamentals'),
+  'Marketing in a Digital World':
+    asset('certificate-coursera-illinois-marketing-digital-world'),
+  'Preparing to Manage Human Resources':
+    asset('certificate-coursera-minnesota-manage-human-resources'),
+  'Digital Marketing Revolution':
+    asset('certificate-coursera-illinois-digital-marketing-revolution'),
 };
+
+export const certificates = [
+  ['JLPT N4', '2022', 'Bahasa', ''],
+  ['BNSP Social Media Marketing', '2026', 'BNSP', 'BNSP'],
+  ['Python for Data Science, AI & Development', '2025', 'Data & Python', ''],
+  ['Pandas Data Analysis', '2024', 'Data & Python', 'Kaggle'],
+  ['Intro to Data Analytics', '2025', 'Data & Python', ''],
+  ['Digital Marketing', '2023', 'Digital Marketing & SEO', 'LEFA'],
+  ['SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
+  ['Advanced SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
+  ['Gold Medal — IITE', '2024', 'Prestasi', 'IITE'],
+  ['Intro To Programming', '2023', 'Data & Python', ''],
+  ['Strategic Marketing & Communication', '2023', 'Digital Marketing & SEO', 'LEFA'],
+  ['TOEFL Prediction (Score 520)', '2025', 'Bahasa', ''],
+  ['Administrasi dan Tata Kelola Perkantoran', '2025', 'Profesional & Manajemen', ''],
+  ['Public Speaking (CPS)', '2025', 'Profesional & Manajemen', ''],
+  ['Corporate Trainer (C.CTr)', '2025', 'Profesional & Manajemen', ''],
+  ['Professional Master of Ceremony (CPMC)', '2025', 'Profesional & Manajemen', ''],
+  ['Excel for Data Analysis', '2025', 'Data & Python', ''],
+  ['HR Management Fundamentals', '2025', 'Profesional & Manajemen', ''],
+  ['Marketing in a Digital World', '2025', 'Digital Marketing & SEO', ''],
+  ['Preparing to Manage Human Resources', '2025', 'Profesional & Manajemen', ''],
+  ['Digital Marketing Revolution', '2025', 'Digital Marketing & SEO', ''],
+  ['UKBI Uji Kemahiran Berbahasa Indonesia (Score Level Madya - 548)', '2025', 'Bahasa', ''],
+  ['Digital Marketing', '2025', 'Digital Marketing & SEO', ''],
+].map(([name, year, category, issuer], id) => ({
+  id,
+  name,
+  year,
+  category,
+  issuer,
+  image:
+    name === 'Digital Marketing' && year !== '2023'
+      ? ''
+      : certificateImages[name ?? ''] ?? '',
+}));
 export const certificates = [
   ['JLPT N4', '2022', 'Bahasa', ''],
   ['BNSP Social Media Marketing', '2026', 'BNSP', 'BNSP'],
