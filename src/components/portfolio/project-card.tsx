@@ -1,7 +1,7 @@
 import { ArrowUpRight, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProjectArt } from './project-art';
-import { ProjectGallery, ProjectMetrics, ProjectPipeline } from './evidence';
+import { ProjectMetrics, ProjectPipeline } from './evidence';
 import type { Project } from '@/data/portfolio';
 
 export function ProjectCard({ project, onOpen }: { project: Project; onOpen: (project: Project) => void }) {
