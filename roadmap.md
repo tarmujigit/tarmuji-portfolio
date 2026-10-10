@@ -1,4 +1,6 @@
 # Tarmuji portfolio
+- [ ] Expand approved CV certificates without duplicates and verify category filters.
+- [ ] Use available original project covers without changing evidence galleries or the portrait; verify tests and preview.
 - [x] Build approved single-page portfolio and premium visual system.
 - [x] Implement accessible case studies, certificate filters and mobile navigation.
 - [x] Verify desktop/mobile and approved factual content.
