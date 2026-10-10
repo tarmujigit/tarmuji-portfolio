@@ -152,7 +152,7 @@ export const projects: Project[] = [
     evidenceNote: 'Nilai akurasi tidak ditampilkan karena belum diberikan.', gallery: [],
   },
   {
-    id: 'ayumi', title: 'AYUMI NIHONGO GAKKOU', category: 'Administration · Digital Marketing · Social Media', filter: 'Brand & Marketing', visual: 'ayumi',
+    id: 'ayumi', title: 'PT AYUMI NIHONGO GAKKOU', category: 'Administration · Digital Marketing · Social Media', filter: 'Brand & Marketing', visual: 'ayumi',
     description: 'Administrasi, pengelolaan media sosial, dan konten pemasaran digital.', status: 'Pengalaman Profesional · Feb 2024–Agu 2025',
     overview: 'Pengalaman administrasi dan digital marketing di PT Ayumi Nihongo Gakkou.', role: 'Administration & Digital Marketing.',
     process: 'Pengelolaan media sosial dan pembuatan konten pemasaran selama periode kerja.',
