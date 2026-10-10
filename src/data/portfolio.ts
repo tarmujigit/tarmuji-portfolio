@@ -225,7 +225,7 @@ export const certificates = [
    ['Digital Marketing Revolution', '2025', 'Digital Marketing & SEO', ''],
    ['UKBI Uji Kemahiran Berbahasa Indonesia (Score Level Madya - 548)', '2025', 'Bahasa', ''],
    ['Digital Marketing', '2025', 'Digital Marketing & SEO', ''],
- ].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: name === 'Digital Marketing' && year !== '2023' ? asset('certificate-coursera-adobe-digital-marketing'): certificateImages[name ?? ''] ?? '',
+ ].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: name === 'Digital Marketing' && year !== '2023' ? asset('certificate-coursera-adobe-digital-marketing'): certificateImages[name ?? ''] ?? '' }));
 export const education = [
   { degree: 'D4 Bisnis Digital', school: 'Politeknik Takumi', date: '2022–2026', detail: 'IPK 3,52', focus: 'Digital Marketing, Business Analytics, Data Science, Market Research, dan Technology Innovation.' },
   { degree: 'Teknik Otomotif', school: 'SMKN 1 Ampelgading', date: '2013–2016', detail: '', focus: 'Pendidikan teknik otomotif.' },
