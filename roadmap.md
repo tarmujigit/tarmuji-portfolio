@@ -1,4 +1,5 @@
 # Tarmuji portfolio
+- [x] Remove duplicate "Galeri Karya" strips from main project cards, keeping galleries inside case study dialogs.
 - [x] Expand approved CV certificates without duplicates and verify category filters.
 - [x] Use available original project covers without changing evidence galleries or the portrait; verify tests and preview.
 - [x] Build approved single-page portfolio and premium visual system.
