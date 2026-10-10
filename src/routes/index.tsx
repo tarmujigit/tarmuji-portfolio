@@ -32,7 +32,7 @@ function Index() {
   return <><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-card focus:p-3">Langsung ke konten</a><Navigation />
   <main id="main">
     <section id="home" className="hero-section"><div className="container-shell"><div className="hero-main">
-      <div className="reveal"><div className="eyebrow">{profile.positioning}</div><h1 className="hero-name">Tarmuji<span className="gradient-text">.</span></h1>
+      <div className="reveal"><div className="eyebrow">{profile.positioning}</div><h1 className="hero-name">{profile.name}<span className="gradient-text">.</span></h1>
         <h2 className="hero-title">Dari data, ide, dan kreativitas menjadi <span className="gradient-text">pengalaman digital.</span></h2>
         <p className="hero-copy">{profile.introduction}</p>
         <div className="hero-actions"><Button variant="portfolio" asChild><a href="#projects">Lihat Proyek <ArrowUpRight /></a></Button><Button variant="quiet" asChild><a href="#contact">Hubungi Saya <ArrowRight /></a></Button></div>
