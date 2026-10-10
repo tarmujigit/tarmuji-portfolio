@@ -425,7 +425,6 @@
 .flagship-project .cover-title { font-size: 44px; }
 .flagship-project .project-info { padding-top: 0; }
 .flagship-project .project-name-row h3 { font-size: 31px; }
-.flagship-project > .evidence-gallery { grid-column: 1/-1; }
 .project-info .case-evaluation { margin-top: 20px; }
 .project-info .metric-item { padding-block: 15px; }
 .project-info .metric-item strong { font-size: 27px; }
@@ -561,6 +560,7 @@
 .section-intro { max-width: 520px; }
 .flagship-project { grid-template-columns: 1fr; }
 .flagship-project .project-summary-cover { min-height: 280px; }
+.flagship-project .project-art { min-height: 280px; }
 .flagship-project .project-info { padding-top: 22px; }
 .cover-title { font-size: 25px; }
 .cover-top { font-size: 9px; }
@@ -608,6 +608,7 @@
 .cover-title { font-size: 29px; }
 .flagship-project .cover-title { font-size: 34px; }
 .flagship-project .project-summary-cover { min-height: 250px; }
+.flagship-project .project-art { min-height: 250px; }
 .flagship-project .project-name-row h3 { font-size: 27px; }
 .project-name-row h3 { font-size: 23px; }
 .metrics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 18px; }
