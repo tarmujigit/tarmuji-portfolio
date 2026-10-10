@@ -68,13 +68,13 @@ export const projects: Project[] = [
   {
     id: 'kokorolens', title: 'KOKOROLENS', category: 'Data Analytics · Machine Learning · NLP · Web Application', filter: 'Data & Machine Learning', visual: 'data',
     cover: { src: asset('kokorolens-dashboard'), alt: 'Tampilan KOKOROLENS dari aset dashboard asli' },
-    description: 'Sistem Analisis Sentimen Media Sosial Berbasis Web.', status: 'Tugas Akhir / Proyek Individual — 2026',
+    description: 'Sistem Analisis Sentimen Media Sosial Berbasis Web.', status: 'Tugas Akhir / Skripsi — 2026',
     overview: 'KOKOROLENS adalah sistem berbasis web untuk mengolah komentar media sosial menjadi analisis sentimen, visualisasi, insight, dan rekomendasi AI.',
     role: 'Peneliti & Pengembang. Proyek individual sebagai tugas akhir tahun 2026.',
     pipeline: ['Dataset', 'Preprocessing', 'TF-IDF', 'Multinomial Naive Bayes', 'Evaluasi', 'Visualisasi', 'Insight', 'AI Recommendation'],
     tools: 'TF-IDF, Multinomial Naive Bayes, NLP, machine learning, dan aplikasi web.',
     metrics: [{ label: 'Accuracy', value: '94,12%' }, { label: 'Precision', value: '94,38%' }, { label: 'Recall', value: '94,12%' }, { label: 'F1-Score', value: '93,97%' }],
-    evidenceNote: 'Hasil evaluasi dataset pengujian: 51 komentar dan 105 fitur TF-IDF. Angka ini hanya menggambarkan evaluasi tersebut, bukan jaminan performa pada semua data atau kondisi penggunaan.',
+    evidenceNote: 'Hasil evaluasi dataset pengujian: komentar media sosial dan 105 fitur TF-IDF. Angka ini hanya menggambarkan evaluasi tersebut, bukan jaminan performa pada semua data atau kondisi penggunaan.',
     output: 'Sistem analisis sentimen berbasis web, visualisasi hasil, insight, dan rekomendasi AI.', gallery: [],
   },
   {
