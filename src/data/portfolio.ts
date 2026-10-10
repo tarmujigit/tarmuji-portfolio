@@ -250,31 +250,6 @@ export const certificates = [
       ? ''
       : certificateImages[name ?? ''] ?? '',
 }));
-export const certificates = [
-  ['JLPT N4', '2022', 'Bahasa', ''],
-  ['BNSP Social Media Marketing', '2026', 'BNSP', 'BNSP'],
-  ['Python for Data Science, AI & Development', '2025', 'Data & Python', ''],
-  ['Pandas Data Analysis', '2024', 'Data & Python', 'Kaggle'],
-  ['Intro to Data Analytics', '2025', 'Data & Python', ''],
-  ['Digital Marketing', '2023', 'Digital Marketing & SEO', 'LEFA'],
-  ['SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
-  ['Advanced SEO Project', '2024', 'Digital Marketing & SEO', 'LEFA'],
-  ['Gold Medal — IITE', '2024', 'Prestasi', 'IITE'],
-   ['Intro To Programming', '2023', 'Data & Python', ''],
-   ['Strategic Marketing & Communication', '2023', 'Digital Marketing & SEO', 'LEFA'],
-   ['TOEFL Prediction (Score 497)', '2025', 'Bahasa', ''],
-   ['Administrasi dan Tata Kelola Perkantoran', '2025', 'Profesional & Manajemen', ''],
-   ['Public Speaking (CPS)', '2025', 'Profesional & Manajemen', ''],
-   ['Corporate Trainer (C.CTr)', '2025', 'Profesional & Manajemen', ''],
-   ['Professional Master of Ceremony (CPMC)', '2025', 'Profesional & Manajemen', ''],
-   ['Excel for Data Analysis', '2025', 'Data & Python', ''],
-   ['HR Management Fundamentals', '2025', 'Profesional & Manajemen', ''],
-   ['Marketing in a Digital World', '2025', 'Digital Marketing & SEO', ''],
-   ['Preparing to Manage Human Resources', '2025', 'Profesional & Manajemen', ''],
-   ['Digital Marketing Revolution', '2025', 'Digital Marketing & SEO', ''],
-   ['UKBI Uji Kemahiran Berbahasa Indonesia (Score Level Madya - 548)', '2025', 'Bahasa', ''],
-   ['Digital Marketing', '2025', 'Digital Marketing & SEO', ''],
- ].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: name === 'Digital Marketing' && year !== '2023' ? '' : certificateImages[name ?? ''] ?? '' }));
 export const education = [
   { degree: 'D4 Bisnis Digital', school: 'Politeknik Takumi', date: '2022–2026', detail: 'IPK 3,52', focus: 'Digital Marketing, Business Analytics, Data Science, Market Research, dan Technology Innovation.' },
   { degree: 'Teknik Otomotif', school: 'SMKN 1 Ampelgading', date: '2013–2016', detail: '', focus: 'Pendidikan teknik otomotif.' },
