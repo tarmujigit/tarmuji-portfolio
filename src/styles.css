@@ -421,6 +421,7 @@
 .project-feature-label svg { width: 15px; height: 15px; }
 .flagship-project { grid-column: 1/-1; display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 0 36px; padding-bottom: 34px; border-bottom: 1px solid var(--border); }
 .flagship-project .project-summary-cover { height: 100%; min-height: 460px; padding-top: 66px; background: var(--surface-evidence); border-color: var(--border-emphasis); }
+.flagship-project .project-art { height: 100%; min-height: 460px; }
 .flagship-project .cover-title { font-size: 44px; }
 .flagship-project .project-info { padding-top: 0; }
 .flagship-project .project-name-row h3 { font-size: 31px; }
