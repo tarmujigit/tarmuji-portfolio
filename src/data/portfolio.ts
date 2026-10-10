@@ -171,11 +171,33 @@ export const leadership = [
 export const achievement = { title: 'Gold Medal', event: '4th International Innovation Technology Expo (IITE) 2024', category: 'Ready Made Product', product: 'Mega Apps', certificate: '1868 / DI / INDO / VII / 2024' };
 export const certificateCategories = ['Semua', 'Bahasa', 'BNSP', 'Data & Python', 'Digital Marketing & SEO', 'Profesional & Manajemen', 'Prestasi'];
 const certificateImages: Record<string, string> = {
-  'JLPT N4': asset('certificate-jlpt-n4'), 'BNSP Social Media Marketing': asset('certificate-bnsp-social-media'),
-  'Pandas Data Analysis': asset('certificate-kaggle-pandas'), 'Gold Medal — IITE': asset('certificate-iite-2024'),
-   'Digital Marketing': '/images/portfolio/certificate-minori-digital-marketing-2023.jpg',
-   'SEO Project': '/images/portfolio/certificate-minori-seo-project-2024.jpg',
-   'Strategic Marketing & Communication': '/images/portfolio/certificate-minori-strategic-marketing-communication-2023.jpg',
+  'JLPT N4': asset('certificate-jlpt-n4'),
+  'BNSP Social Media Marketing': asset('certificate-bnsp-social-media'),
+  'Python for Data Science, AI & Development': asset('certificate-coursera-ibm-python-data-science'),
+  'Pandas Data Analysis': asset('certificate-kaggle-pandas'),
+  'Intro to Data Analytics': asset('certificate-coursera-introduction-data-analytics'),
+
+  'Digital Marketing': '/images/portfolio/certificate-minori-digital-marketing-2023.jpg',
+  'SEO Project': '/images/portfolio/certificate-minori-seo-project-2024.jpg',
+  'Advanced SEO Project': asset('certificate-minori-seo-project-2025'),
+  'Strategic Marketing & Communication': '/images/portfolio/certificate-minori-strategic-marketing-communication-2023.jpg',
+
+  'Gold Medal — IITE': asset('certificate-iite-2024'),
+  'Intro To Programming': asset('certificate-kaggle-intro-programming'),
+  'TOEFL Prediction (Score 520)': asset('certificate-toefl-prediction'),
+
+  'Administrasi dan Tata Kelola Perkantoran': asset('certificate-administrasi-perkantoran'),
+  'Public Speaking (CPS)': asset('certificate-public-speaking'),
+  'Corporate Trainer (C.CTr)': asset('certificate-corporate-trainer'),
+  'Professional Master of Ceremony (CPMC)': asset('certificate-professional-master-of-ceremony'),
+
+  'Excel for Data Analysis': asset('certificate-coursera-ibm-excel-data-analysis'),
+  'HR Management Fundamentals': asset('certificate-coursera-hr-management-fundamentals'),
+  'Marketing in a Digital World': asset('certificate-coursera-illinois-marketing-digital-world'),
+  'Preparing to Manage Human Resources': asset('certificate-coursera-minnesota-manage-human-resources'),
+  'Digital Marketing Revolution': asset('certificate-coursera-illinois-digital-marketing-revolution'),
+
+  'UKBI Uji Kemahiran Berbahasa Indonesia (Score Level Madya - 548)': asset('certificate-ukbi'),
 };
 export const certificates = [
   ['JLPT N4', '2022', 'Bahasa', ''],
