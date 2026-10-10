@@ -671,13 +671,13 @@ flex-basis: 52px;
   .flagship-project .project-art {
     height: auto;
     min-height: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
   }
 
   .flagship-project .project-summary-cover {
     height: auto;
     min-height: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     padding-top: 66px;
   }
 }
