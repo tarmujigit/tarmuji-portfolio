@@ -42,6 +42,7 @@ export const replacedAssets: Record<
   'certificate-administrasi-perkantoran': 'jpg' ,
   'certificate-minori-seo-project-2025': 'jpg' ,
   'certificate-toefl-prediction': 'jpg' ,
+  'achievement-iite-2024': 'png' ,
   
   
   
