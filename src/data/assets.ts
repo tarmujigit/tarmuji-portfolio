@@ -40,6 +40,8 @@ export const replacedAssets: Record<
   'certificate-coursera-adobe-digital-marketing': 'jpg' ,
   'certificate-corporate-trainer': 'jpg' ,
   'certificate-administrasi-perkantoran': 'jpg' ,
+  'certificate-minori-seo-project-2025': 'jpg' ,
+  
   
   
   // KOKOROLENS
