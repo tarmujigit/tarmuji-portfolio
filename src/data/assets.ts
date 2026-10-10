@@ -17,6 +17,8 @@ export const replacedAssets: Record<
   'certificate-jlpt-n4': 'jpg',
   'certificate-iite-2024': 'jpg',
   'certificate-kaggle-pandas': 'jpg',
+  'certificate-komdigi-video-content-creator': 'svg' ,
+  'certificate-komdigi-digital-mindset': 'svg' ,
 
   // KOKOROLENS
   'kokorolens-dashboard': 'svg',
