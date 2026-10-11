@@ -710,3 +710,45 @@ height: 130px;
 min-width: 110px;
 }
 }
+
+@media (max-width: 640px) {
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .leadership-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .leadership-image {
+    width: 100%;
+    max-width: 100%;
+    height: 160px;
+    object-fit: contain;
+  }
+
+  .education-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .education-item {
+    min-width: 0;
+  }
+
+  .education-title-row {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .education-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+}
+
