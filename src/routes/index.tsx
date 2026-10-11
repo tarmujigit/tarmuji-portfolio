@@ -9,6 +9,7 @@ import { EvidenceGallery } from '@/components/portfolio/evidence';
 import { SafeImage } from '@/components/portfolio/safe-image';
 import { CaseStudy } from '@/components/portfolio/case-study';
 import { achievement, certificates, certificateCategories, education, experience, languages, leadership, profile, projectCategories, projects, skills, storyAssets, type Project } from '@/data/portfolio';
+import { asset } from '@/data/assets';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -48,10 +49,13 @@ function Index() {
     <section id="achievements" className="section">
   <div className="container-shell">
     <div className="achievement" aria-labelledby="achievement-title">
-      <div className="award-emblem">
-        <Award />
-        <span>GOLD<br />MEDAL</span>
-      </div>
+      </div> <div className="award-emblem">
+        <img
+          className="achievement-photo"
+          src={asset('achievement-iite-2024')}
+          alt="Tarmuji memegang medali Gold Medal IITE 2024"
+          loading="lazy"
+          />
       <div>
         <div className="eyebrow">06 / PRESTASI</div>
         <h2 id="achievement-title">
