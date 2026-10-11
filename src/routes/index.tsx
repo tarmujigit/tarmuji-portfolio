@@ -173,6 +173,7 @@ function Index() {
   const [musicPopupOpen, setMusicPopupOpen] = useState(false);
   const [musicPlaying, setMusicPlaying] = useState(false);
 
+
   
 useEffect(() => {
   const audio = document.getElementById(
@@ -196,21 +197,36 @@ useEffect(() => {
       return;
     }
 
-    audio.play()
-      .then(() => setMusicPlaying(true))
-      .catch(() => setMusicPlaying(false));
+    // Coba autoplay hanya saat musik belum pernah dimulai.
+    if (audio.paused && audio.currentTime === 0) {
+      audio.play()
+        .then(() => setMusicPlaying(true))
+        .catch(() => setMusicPlaying(false));
+    }
   };
 
-  const timer = window.setInterval(syncMusic, 500);
-  document.addEventListener('click', syncMusic);
-  document.addEventListener('touchstart', syncMusic);
+  const timer = window.setInterval(() => {
+    const introScreen = document.querySelector('.intro-screen');
+    const introAudio = document.getElementById(
+      'intro-audio'
+    ) as HTMLAudioElement | null;
+
+    if (introScreen || (introAudio && !introAudio.paused)) {
+      audio.pause();
+      setMusicPlaying(false);
+    } else {
+      window.clearInterval(timer);
+      syncMusic();
+    }
+  }, 500);
+
+  audio.addEventListener('play', () => setMusicPlaying(true));
+  audio.addEventListener('pause', () => setMusicPlaying(false));
 
   syncMusic();
 
   return () => {
     window.clearInterval(timer);
-    document.removeEventListener('click', syncMusic);
-    document.removeEventListener('touchstart', syncMusic);
   };
 }, []);
 
@@ -249,7 +265,6 @@ const stopMusic = () => {
   setMusicPopupOpen(false);
 };
 
-  
   return <>
     <audio id="main-audio" src="/audio/background.mp3" preload="auto" loop />
     
