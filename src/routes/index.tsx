@@ -314,7 +314,7 @@ const stopMusic = () => {
         <div className="music-popup-record-label">TM</div>
       </div>
 
-      <h2>Background Music</h2>
+      <h2>Every Step Will Lead Me Home</h2>
       <p className="music-popup-subtitle">
         Tarmuji · Portfolio Soundtrack
       </p>
