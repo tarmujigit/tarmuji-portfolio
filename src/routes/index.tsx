@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowDown, ArrowRight, ArrowUp, ArrowUpRight, Award, BarChart3, BriefcaseBusiness, ChevronDown, Code2, Database, Linkedin, Mail, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navigation, Wordmark } from '@/components/portfolio/navigation';
@@ -24,13 +24,112 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
   return <div className="section-heading"><div><div className="eyebrow">{eyebrow}</div><h2 className="section-title">{title}</h2></div>{description && <p className="section-intro">{description}</p>}</div>;
 }
 const skillIcons = [BarChart3, Database, Palette, Code2, BriefcaseBusiness];
+
+function IntroScreen() {
+  const [progress, setProgress] = useState(0);
+  const [entered, setEntered] = useState(false);
+  const [musicOn, setMusicOn] = useState(false);
+
+  useEffect(() => {
+    if (entered) return;
+
+    const start = Date.now();
+    const timer = window.setInterval(() => {
+      const value = Math.min(100, ((Date.now() - start) / 10000) * 100);
+      setProgress(value);
+
+      if (value >= 100) {
+        window.clearInterval(timer);
+        setEntered(true);
+      }
+    }, 50);
+
+    return () => window.clearInterval(timer);
+  }, [entered]);
+
+  const toggleMusic = async () => {
+    const audio = document.getElementById('intro-audio') as HTMLAudioElement | null;
+    if (!audio) return;
+
+    if (musicOn) {
+      audio.pause();
+      setMusicOn(false);
+    } else {
+      try {
+        await audio.play();
+        setMusicOn(true);
+      } catch {
+        setMusicOn(false);
+      }
+    }
+  };
+
+  if (entered) return null;
+
+  return (
+    <div className="intro-screen">
+      <audio id="intro-audio" src="/audio/intro.mp3" loop />
+
+      <div className="intro-panel">
+        <div className="intro-tags">
+          <span>● SYSTEM READY</span>
+          <span>PORTFOLIO 2026</span>
+          <span>WELCOME</span>
+        </div>
+
+        <div className="intro-content">
+          <div className="intro-copy">
+            <p className="intro-kicker">TARMUJI. / DIGITAL PORTFOLIO</p>
+            <h1>Welcome to<br />my Portfolio<br />Website</h1>
+            <p>Building ideas into meaningful digital experiences.</p>
+
+            <div className="intro-status">
+              <span>LOADING PORTFOLIO</span>
+              <span>{Math.floor(progress)}%</span>
+            </div>
+
+            <div
+              className="intro-progress"
+              role="progressbar"
+              aria-valuenow={Math.floor(progress)}
+              aria-valuemin={0}
+              aria-valuemax={100}
+            >
+              <div style={{ width: `${progress}%` }} />
+            </div>
+
+            <div className="intro-actions">
+              <button onClick={toggleMusic}>
+                {musicOn ? '♫ MUSIC ON' : '♫ PLAY MUSIC'}
+              </button>
+              <button onClick={() => setEntered(true)}>SKIP INTRO ↗</button>
+            </div>
+          </div>
+
+          <div className="intro-vinyl-wrap">
+            <div className="intro-vinyl">
+              <div className="intro-vinyl-label">
+                <img
+                  src="/images/portfolio/intro-photo.jpg"
+                  alt="Foto Tarmuji"
+                />
+              </div>
+            </div>
+            <span className="intro-online">● NOW PLAYING</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Index() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [certificateFilter, setCertificateFilter] = useState('Semua');
   const [projectFilter, setProjectFilter] = useState('Semua');
   const filteredCertificates = certificates.filter(c => certificateFilter === 'Semua' || c.category === certificateFilter);
   const filteredProjects = projects.filter(p => projectFilter === 'Semua' || p.filter === projectFilter);
-  return <><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-card focus:p-3">Langsung ke konten</a><Navigation />
+  return <><IntroScreen /><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-card focus:p-3">Langsung ke konten</a><Navigation />
   <main id="main">
     <section id="home" className="hero-section"><div className="container-shell"><div className="hero-main">
       <div className="reveal"><div className="eyebrow">{profile.positioning}</div><h1 className="hero-name">{profile.name}<span className="gradient-text">.</span></h1>
