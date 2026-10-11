@@ -1353,6 +1353,20 @@ min-width: 110px;
   );
   box-shadow: 0 10px 28px #0009;
   z-index: 2;
+  transform-origin: center center;
+}
+
+.music-popup-vinyl.is-playing {
+  animation: music-vinyl-spin 4s linear infinite;
+}
+
+@keyframes music-vinyl-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .music-popup-vinyl.is-playing {
