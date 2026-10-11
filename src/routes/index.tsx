@@ -48,19 +48,23 @@ function IntroScreen() {
   }, [entered]);
 
   const toggleMusic = async () => {
-    const audio = document.getElementById('intro-audio') as HTMLAudioElement | null;
+    const audio = document.getElementById(
+      'intro-audio'
+    ) as HTMLAudioElement | null;
+
     if (!audio) return;
 
     if (musicOn) {
       audio.pause();
       setMusicOn(false);
-    } else {
-      try {
-        await audio.play();
-        setMusicOn(true);
-      } catch {
-        setMusicOn(false);
-      }
+      return;
+    }
+
+    try {
+      await audio.play();
+      setMusicOn(true);
+    } catch {
+      setMusicOn(false);
     }
   };
 
@@ -80,8 +84,16 @@ function IntroScreen() {
         <div className="intro-content">
           <div className="intro-copy">
             <p className="intro-kicker">TARMUJI. / DIGITAL PORTFOLIO</p>
-            <h1>Welcome to<br />my Portfolio<br />Website</h1>
-            <p>Building ideas into meaningful digital experiences.</p>
+
+            <h1>
+              Welcome to<br />
+              my Portfolio<br />
+              Website
+            </h1>
+
+            <p>
+              Building ideas into meaningful digital experiences.
+            </p>
 
             <div className="intro-status">
               <span>LOADING PORTFOLIO</span>
@@ -102,27 +114,34 @@ function IntroScreen() {
               <button onClick={toggleMusic}>
                 {musicOn ? '♫ MUSIC ON' : '♫ PLAY MUSIC'}
               </button>
-              <button onClick={() => setEntered(true)}>SKIP INTRO ↗</button>
+
+              <button onClick={() => setEntered(true)}>
+                SKIP INTRO ↗
+              </button>
             </div>
           </div>
 
-          <div className="intro-vinyl-wrap">
-            <div className="intro-vinyl">
-              <div className="intro-vinyl-label">
-                <img
-                  src="/images/portfolio/intro-photo.jpg"
-                  alt="Foto Tarmuji"
-                />
+          <div className="intro-visual">
+            <img
+              className="intro-photo"
+              src="/images/portfolio/intro-photo.jpg"
+              alt="Foto Tarmuji"
+            />
+
+            <div className="intro-record-area">
+              <div className="intro-vinyl">
+                <div className="intro-vinyl-center">
+                  <span>TM</span>
+                </div>
               </div>
+              <span className="intro-online">● NOW PLAYING</span>
             </div>
-            <span className="intro-online">● NOW PLAYING</span>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
 function Index() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [certificateFilter, setCertificateFilter] = useState('Semua');
