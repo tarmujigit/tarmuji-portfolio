@@ -1,4 +1,5 @@
 # Tarmuji portfolio
+- [ ] Audit and revise approved public copy; hide missing media/internal notes and verify tests and preview without deployment.
 - [x] Remove duplicate "Galeri Karya" strips from main project cards, keeping galleries inside case study dialogs.
 - [x] Expand approved CV certificates without duplicates and verify category filters.
 - [x] Use available original project covers without changing evidence galleries or the portrait; verify tests and preview.
