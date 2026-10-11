@@ -93,11 +93,14 @@ function Index() {
       </div>
     </article>
   ))}
-</div>
-</div>
+    </div>
+  </div>
 </section>
     <section id="education" className="section"><div className="container-shell education-layout"><div><SectionHeading eyebrow="07 / PENDIDIKAN" title="Fondasi akademik." />{education.map(e => (<article className="education-item" key={e.school}><div className="education-title-row"><img className="education-logo" src={e.logo} alt={`Logo ${e.school}`} loading="lazy" /><h3>{e.degree}</h3></div><div className="education-meta"><span>{e.school}</span><span>{e.date}</span></div>{e.detail && <p>{e.detail}</p>}<p>{e.focus}</p>{e.school === 'Politeknik Takumi' && <a className="education-story-link" href="#about">Perjalanan pendidikan <ArrowUpRight size={16} /></a>}</article>))}
-   <section id="contact" className="contact-section"><div className="container-shell"><div className="eyebrow">08 / HUBUNGI SAYA</div><h2 className="contact-title">PUNYA IDE?<br /><span className="gradient-text">MARI TERHUBUNG.</span></h2><p className="contact-subtext">Untuk percakapan tentang peluang kerja, kolaborasi, karya kreatif, dan tantangan bisnis digital.</p><Button variant="portfolio" asChild><a href={`mailto:${profile.contact.email}`} target="_blank" rel="noopener noreferrer">Kirim Email <ArrowUpRight /></a></Button><div className="contact-links"><a href={`mailto:${profile.contact.email}`} target="_blank" rel="noopener noreferrer"><Mail />{profile.contact.email}<ArrowUpRight size={12} /></a><a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin />LinkedIn<ArrowUpRight size={12} /></a></div></div></section>
+    </div>
+  </div>
+</section>
+<section id="contact" className="contact-section"><div className="container-shell"><div className="eyebrow">08 / HUBUNGI SAYA</div><h2 className="contact-title">PUNYA IDE?<br /><span className="gradient-text">MARI TERHUBUNG.</span></h2><p className="contact-subtext">Untuk percakapan tentang peluang kerja, kolaborasi, karya kreatif, dan tantangan bisnis digital.</p><Button variant="portfolio" asChild><a href={`mailto:${profile.contact.email}`} target="_blank" rel="noopener noreferrer">Kirim Email <ArrowUpRight /></a></Button><div className="contact-links"><a href={`mailto:${profile.contact.email}`} target="_blank" rel="noopener noreferrer"><Mail />{profile.contact.email}<ArrowUpRight size={12} /></a><a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin />LinkedIn<ArrowUpRight size={12} /></a></div></div></section>
   </main><footer className="container-shell footer"><a href="#home" aria-label="Beranda Tarmuji"><Wordmark /></a><p>© {profile.year} Tarmuji. Seluruh hak cipta dilindungi.</p><a href="#home" className="inline-flex items-center gap-2">Kembali ke atas <ArrowUp size={12} /></a></footer><CaseStudy project={selectedProject} onClose={() => setSelectedProject(null)} /></>;
 }
 function ExperienceRow({ item }: { item: typeof experience[number] }) { return <article className="experience-row"><span className="experience-date">{item.date}</span><div><h3>{item.role}</h3><p>{item.company}</p></div><span className="category-tag">{item.area}</span></article>; }
