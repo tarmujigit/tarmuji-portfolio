@@ -1315,3 +1315,70 @@ min-width: 110px;
     animation: none;
   }
 }
+
+.music-popup-artwork {
+  position: relative;
+  width: min(100%, 240px);
+  aspect-ratio: 1;
+  margin: 24px auto;
+}
+
+.music-popup-cover-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  box-shadow: 0 12px 30px #0007;
+}
+
+.music-popup-vinyl {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 72%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border: 1px solid #3a3b43;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle,
+    #101116 0,
+    #101116 3px,
+    #24252d 4px,
+    #14151b 6px
+  );
+  box-shadow: 0 10px 28px #0009;
+  z-index: 2;
+}
+
+.music-popup-vinyl.is-playing {
+  animation: music-vinyl-spin 4s linear infinite;
+}
+
+.music-popup-vinyl-center {
+  width: 35%;
+  aspect-ratio: 1;
+  border: 4px solid #2d1720;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #a52b46,
+    #4a1221 75%
+  );
+}
+
+@media (max-width: 600px) {
+  .music-popup-artwork {
+    width: min(72%, 210px);
+    margin: 22px auto 30px;
+  }
+
+  .music-popup-vinyl {
+    width: 72%;
+  }
+}
+
