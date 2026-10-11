@@ -48,34 +48,48 @@ function Index() {
     <section id="certificates" className="section"><div className="container-shell"><SectionHeading eyebrow="05 / SERTIFIKASI" title={<>Terus belajar. <span className="gradient-text">Terus berkembang.</span></>} description="Pilihan sertifikasi bahasa, data, pemasaran digital, dan kompetensi profesional yang relevan dengan pekerjaan saya." /><div className="filter-row" aria-label="Filter sertifikasi">{certificateCategories.map(cat => <Button variant="filter" key={cat} aria-pressed={certificateFilter === cat} onClick={() => setCertificateFilter(cat)}>{cat}</Button>)}</div><p className="results-count" aria-live="polite">{filteredCertificates.length} sertifikasi · {certificateFilter}</p><div className="certificate-grid">{filteredCertificates.map(c => <article key={c.id} className="certificate-card"><SafeImage frameClassName="certificate-preview" src={c.image} alt={`Sertifikat ${c.name}`} label={`Sertifikat ${c.name}`} fallback={null} /><div className="certificate-info"><h3>{c.name}</h3><p>{c.issuer ? `${c.issuer} · ` : ''}{c.year}<br />{c.category}</p></div></article>)}</div></div></section>
     <section id="achievements" className="section">
   <div className="container-shell">
+    
+<section id="achievements" className="section">
+  <div className="container-shell">
     <div className="achievement" aria-labelledby="achievement-title">
-      </div> <div className="award-emblem">
+      <div className="award-emblem">
         <img
           className="achievement-photo"
           src={asset('achievement-iite-2024')}
           alt="Tarmuji memegang medali Gold Medal IITE 2024"
           loading="lazy"
-          />
-      <div>
+        />
+      </div>
+
+      <div className="achievement-copy">
         <div className="eyebrow">06 / PRESTASI</div>
         <h2 id="achievement-title">
-          {achievement.title} <span className="gradient-text">— IITE 2024</span>
+          {achievement.title}{' '}
+          <span className="gradient-text">— IITE 2024</span>
         </h2>
         <p>{achievement.event}</p>
         <p>Kategori {achievement.category} · Produk {achievement.product}</p>
-        <p className="award-certificate">No. sertifikat: {achievement.certificate}</p>
+        <p className="award-certificate">
+          No. sertifikat: {achievement.certificate}
+        </p>
       </div>
+
       <span className="award-year" aria-hidden="true">2024</span>
     </div>
+
     <SectionHeading
       eyebrow="KEPEMIMPINAN & ORGANISASI"
       title={<>Berkarya bersama. <span className="gradient-text">Memimpin dengan tujuan.</span></>}
     />
+
     <div className="leadership-grid">
       {leadership.map(([year, role, org]) => (
         <article className="leadership-item" key={`${org}-${role}`}>
           <span>{year}</span>
-          <div><h3>{role}</h3><p>{org}</p></div>
+          <div>
+            <h3>{role}</h3>
+            <p>{org}</p>
+          </div>
         </article>
       ))}
     </div>
