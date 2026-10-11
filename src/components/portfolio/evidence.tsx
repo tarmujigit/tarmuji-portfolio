@@ -1,15 +1,18 @@
 import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 import { SafeImage } from './safe-image';
 import { isPlaceholderAsset } from '@/data/assets';
 import { projectEvidence, type EvidenceAsset, type Project } from '@/data/portfolio';
 
 export function EvidenceGallery({ assets, title = 'Galeri Karya' }: { assets: EvidenceAsset[]; title?: string }) {
-  if (!assets.length) return null;
+  const [failedSources, setFailedSources] = useState<string[]>([]);
+  const visibleAssets = assets.filter(asset => asset.src && !isPlaceholderAsset(asset.src) && !failedSources.includes(asset.src));
+  if (!visibleAssets.length) return null;
   return <section className="evidence-gallery" aria-label={title}>
-    <div className="evidence-heading"><h3>{title}</h3>{assets.some(asset => !asset.src || isPlaceholderAsset(asset.src)) && <span>Menunggu dokumentasi asli</span>}</div>
-    <div className="evidence-grid">{assets.map((asset, i) => <figure className={`evidence-frame ${asset.src ? 'has-evidence' : ''}`} key={asset.label}>
-      <SafeImage src={asset.src} alt={asset.alt} label={asset.label} fallback={<div className="evidence-slot"><span className="evidence-index">{String(i + 1).padStart(2, '0')} / DOKUMENTASI</span><span className="evidence-slot-name">{asset.label}</span><span className="evidence-pending">Belum dipublikasikan</span></div>} />
-      {asset.src && <figcaption>{asset.label}{isPlaceholderAsset(asset.src) && ' · slot aset'}</figcaption>}
+    <div className="evidence-heading"><h3>{title}</h3></div>
+    <div className="evidence-grid">{visibleAssets.map(asset => <figure className="evidence-frame has-evidence" key={asset.src}>
+      <SafeImage src={asset.src} alt={asset.alt} label={asset.label} fallback={null} onUnavailable={() => { const src = asset.src; if (src) setFailedSources(previous => [...previous, src]); }} />
+      <figcaption>{asset.label}</figcaption>
     </figure>)}</div>
   </section>;
 }

@@ -88,10 +88,12 @@ export function asset(name: string): string {
   return `${BASE}${name}.${extension}`;
 }
 
+// These two local SVGs are still asset slots. Other SVGs now contain supplied images.
+const placeholderAssets = new Set([
+  `${BASE}mega-apps-landing.svg`,
+  `${BASE}mega-apps-population-system.svg`,
+]);
+
 export function isPlaceholderAsset(src?: string): boolean {
-  return Boolean(
-    src &&
-    src.startsWith(BASE) &&
-    src.endsWith('.svg')
-  );
+  return Boolean(src && placeholderAssets.has(src));
 }
