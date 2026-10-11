@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isPlaceholderAsset } from '@/data/assets';
+import { asset, isPlaceholderAsset } from '@/data/assets';
 import { certificateCategories, certificates, education, navigation, profile, projects, projectEvidence, storyAssets } from '@/data/portfolio';
 
 describe('Approved portfolio evidence', () => {
@@ -29,7 +29,7 @@ describe('Approved portfolio evidence', () => {
     expect(certificates.every(c => certificateCategories.includes(c.category ?? ''))).toBe(true);
     expect(certificates.find(c => c.name === 'TOEFL Prediction (Score 497)')?.year).toBe('2025');
     expect(certificates.filter(c => c.name === 'Digital Marketing').map(c => c.year)).toEqual(['2023', '2025']);
-    expect(certificates.find(c => c.name === 'Digital Marketing' && c.year === '2025')?.image).toBe('');
+    expect(certificates.find(c => c.name === 'Digital Marketing' && c.year === '2025')?.image).toBe(asset('certificate-coursera-adobe-digital-marketing'));
   });
   it('keeps career stats contextual and original media slots honest', () => {
     expect(profile.stats.map(stat => stat.value)).toEqual(['900 JAM', '94,12%', '5.600+', 'GOLD MEDAL']);
@@ -38,9 +38,19 @@ describe('Approved portfolio evidence', () => {
     expect(projectEvidence['kokorolens']).toHaveLength(2);
     expect(projectEvidence['mega']).toHaveLength(2);
     expect(projectEvidence['mega']?.map(asset => asset.src)).toEqual(['/images/portfolio/mega-apps-landing.jpg', '/images/portfolio/mega-apps-population-system.jpg']);
-    expect(storyAssets.every(asset => isPlaceholderAsset(asset.src))).toBe(true);
-    expect(projects.filter(project => project.cover).map(project => project.id)).toEqual(['kokorolens', 'mega', 'vinix']);
-    expect(isPlaceholderAsset(profile.portrait)).toBe(true);
+    expect(storyAssets.every(asset => !isPlaceholderAsset(asset.src))).toBe(true);
+    expect(projects.every(project => project.cover)).toBe(true);
+    expect(isPlaceholderAsset(profile.portrait)).toBe(false);
+    expect(isPlaceholderAsset('/images/portfolio/mega-apps-landing.svg')).toBe(true);
     expect(projects.map(project => project.id)).toEqual(['kokorolens', 'mega', 'vinix', 'seo', 'roblox', 'video', 'linear', 'svm', 'ayumi']);
+  });
+  it('uses approved project scope without internal public notes', () => {
+    const vinix = projects.find(project => project.id === 'vinix');
+    expect(vinix?.role).toContain('4 mahasiswa, termasuk saya');
+    expect(vinix?.overview).toContain('900 jam');
+    expect(projects.find(project => project.id === 'mega')?.result).toBe('Gold Medal — 4th International Innovation Technology Expo (IITE) 2024, kategori Ready Made Product.');
+    expect(projects.find(project => project.id === 'video')?.tools).toBe('Canva, CapCut, dan Adobe.');
+    expect(projects.find(project => project.id === 'svm')?.overview).toContain('klasifikasi potabilitas air');
+    expect(JSON.stringify({ profile, projects, certificates })).not.toMatch(/belum diberikan|belum dipublikasikan|menunggu dokumentasi|900K|Score 520/i);
   });
 });
