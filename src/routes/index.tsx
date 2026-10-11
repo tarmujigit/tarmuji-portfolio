@@ -76,27 +76,6 @@ useEffect(() => {
   };
 }, [entered]);
 
-const toggleMusic = async () => {
-  const audio = document.getElementById(
-    'intro-audio'
-  ) as HTMLAudioElement | null;
-
-  if (!audio) return;
-
-  if (musicOn) {
-    audio.pause();
-    setMusicOn(false);
-  } else {
-    try {
-      audio.volume = 0.15;
-      await audio.play();
-      setMusicOn(true);
-    } catch {
-      setMusicOn(false);
-    }
-  }
-};
-
   if (entered) return null;
 
   return (
@@ -138,11 +117,6 @@ const toggleMusic = async () => {
             >
               <div style={{ width: `${progress}%` }} />
             </div>
-
-            <div className="intro-actions">
-              <button onClick={toggleMusic}>
-                {musicOn ? '♫ MUSIC ON' : '♫ PLAY MUSIC'}
-              </button>
 
               <button onClick={() => setEntered(true)}>
                 SKIP INTRO ↗
