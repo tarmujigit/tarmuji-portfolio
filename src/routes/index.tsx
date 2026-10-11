@@ -30,43 +30,72 @@ function IntroScreen() {
   const [entered, setEntered] = useState(false);
   const [musicOn, setMusicOn] = useState(false);
 
-  useEffect(() => {
-    if (entered) return;
+  
+useEffect(() => {
+  if (entered) return;
 
-    const start = Date.now();
-    const timer = window.setInterval(() => {
-      const value = Math.min(100, ((Date.now() - start) / 10000) * 100);
-      setProgress(value);
+  const audio = document.getElementById(
+    'intro-audio'
+  ) as HTMLAudioElement | null;
 
-      if (value >= 100) {
-        window.clearInterval(timer);
-        setEntered(true);
-      }
-    }, 50);
+  let cancelled = false;
 
-    return () => window.clearInterval(timer);
-  }, [entered]);
+  if (audio) {
+    audio.volume = 0.15;
 
-  const toggleMusic = async () => {
-    const audio = document.getElementById(
-      'intro-audio'
-    ) as HTMLAudioElement | null;
+    audio.play()
+      .then(() => {
+        if (!cancelled) setMusicOn(true);
+      })
+      .catch(() => {
+        // Browser mungkin memblokir autoplay bersuara.
+        if (!cancelled) setMusicOn(false);
+      });
+  }
 
-    if (!audio) return;
+  const start = Date.now();
 
-    if (musicOn) {
-      audio.pause();
-      setMusicOn(false);
-      return;
+  const timer = window.setInterval(() => {
+    const value = Math.min(
+      100,
+      ((Date.now() - start) / 30000) * 100
+    );
+
+    setProgress(value);
+
+    if (value >= 100) {
+      window.clearInterval(timer);
+      setEntered(true);
     }
+  }, 50);
 
+  return () => {
+    cancelled = true;
+    window.clearInterval(timer);
+    if (audio) audio.pause();
+  };
+}, [entered]);
+
+const toggleMusic = async () => {
+  const audio = document.getElementById(
+    'intro-audio'
+  ) as HTMLAudioElement | null;
+
+  if (!audio) return;
+
+  if (musicOn) {
+    audio.pause();
+    setMusicOn(false);
+  } else {
     try {
+      audio.volume = 0.15;
       await audio.play();
       setMusicOn(true);
     } catch {
       setMusicOn(false);
     }
-  };
+  }
+};
 
   if (entered) return null;
 
