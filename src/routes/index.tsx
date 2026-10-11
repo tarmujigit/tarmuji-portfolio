@@ -310,9 +310,22 @@ const stopMusic = () => {
         NOW PLAYING
       </div>
 
-      <div className={`music-popup-record ${musicPlaying ? 'is-playing' : ''}`}>
-        <div className="music-popup-record-label">TM</div>
-      </div>
+      <div className="music-popup-artwork">
+  <img
+    className="music-popup-cover-image"
+    src="/images/portfolio/music-cover.jpg"
+    alt="Sampul musik Tarmuji"
+  />
+
+  <div
+    className={`music-popup-vinyl ${
+      musicPlaying ? 'is-playing' : ''
+    }`}
+    aria-hidden="true"
+  >
+    <div className="music-popup-vinyl-center" />
+  </div>
+</div>
 
       <h2>Every Step Will Lead Me Home</h2>
       <p className="music-popup-subtitle">
