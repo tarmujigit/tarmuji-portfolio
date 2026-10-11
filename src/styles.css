@@ -716,7 +716,7 @@ min-width: 110px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
-@media (max-width: 180px) {
+@media (max-width: 640px) {
 .leadership-item {
   position: relative;
   display: flex;
