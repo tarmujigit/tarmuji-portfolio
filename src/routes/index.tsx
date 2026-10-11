@@ -24,79 +24,91 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
   return <div className="section-heading"><div><div className="eyebrow">{eyebrow}</div><h2 className="section-title">{title}</h2></div>{description && <p className="section-intro">{description}</p>}</div>;
 }
 const skillIcons = [BarChart3, Database, Palette, Code2, BriefcaseBusiness];
-
 function IntroScreen() {
   const [progress, setProgress] = useState(0);
   const [entered, setEntered] = useState(false);
-  const [musicOn, setMusicOn] = useState(false);
 
-  
-useEffect(() => {
-  if (entered) return;
+  useEffect(() => {
+    if (entered) return;
 
-  const audio = document.getElementById(
-    'intro-audio'
-  ) as HTMLAudioElement | null;
+    const audio = document.getElementById(
+      "intro-audio"
+    ) as HTMLAudioElement | null;
 
-  let cancelled = false;
+    if (audio) {
+      audio.volume = 0.15;
+      audio.loop = true;
 
-  if (audio) {
-    audio.volume = 0.15;
-
-    audio.play()
-      .then(() => {
-        if (!cancelled) setMusicOn(true);
-      })
-      .catch(() => {
-        // Browser mungkin memblokir autoplay bersuara.
-        if (!cancelled) setMusicOn(false);
-      });
-  }
-
-  const start = Date.now();
-
-  const timer = window.setInterval(() => {
-    const value = Math.min(
-      100,
-      ((Date.now() - start) / 30000) * 100
-    );
-
-    setProgress(value);
-
-    if (value >= 100) {
-      window.clearInterval(timer);
-      setEntered(true);
+      audio.play().catch(() => {});
     }
-  }, 50);
 
-  return () => {
-    cancelled = true;
-    window.clearInterval(timer);
-    if (audio) audio.pause();
-  };
-}, [entered]);
+    const playMusic = () => {
+      if (audio && audio.paused) {
+        audio.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener("click", playMusic);
+    document.addEventListener("touchstart", playMusic);
+
+    const start = Date.now();
+
+    const timer = window.setInterval(() => {
+      const value = Math.min(
+        100,
+        ((Date.now() - start) / 30000) * 100
+      );
+
+      setProgress(value);
+
+      if (value >= 100) {
+        window.clearInterval(timer);
+        setEntered(true);
+      }
+    }, 50);
+
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener("click", playMusic);
+      document.removeEventListener("touchstart", playMusic);
+
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    };
+  }, [entered]);
 
   if (entered) return null;
 
   return (
     <div className="intro-screen">
-      <audio id="intro-audio" src="/audio/intro.mp3" loop />
+      <audio
+        id="intro-audio"
+        src="/audio/intro.mp3"
+        preload="auto"
+        loop
+      />
 
       <div className="intro-panel">
         <div className="intro-tags">
           <span>● SYSTEM READY</span>
-          <span>PORTFOLIO 2026</span>
-          <span>WELCOME</span>
+          <span>PORTFOLIO</span>
+          <span>2026</span>
         </div>
 
         <div className="intro-content">
           <div className="intro-copy">
-            <p className="intro-kicker">TARMUJI. / DIGITAL PORTFOLIO</p>
+            <p className="intro-kicker">
+              DIGITAL PORTFOLIO
+            </p>
 
             <h1>
-              Welcome to<br />
-              my Portfolio<br />
-              Website
+              Tarmuji, S.Tr.Bns
+              <br />
+              Welcome to
+              <br />
+              my Portofolio
             </h1>
 
             <p>
@@ -115,9 +127,12 @@ useEffect(() => {
               aria-valuemin={0}
               aria-valuemax={100}
             >
-              <div style={{ width: `${progress}%` }} />
+              <div
+                style={{ width: `${progress}%` }}
+              />
             </div>
 
+            <div className="intro-actions">
               <button onClick={() => setEntered(true)}>
                 SKIP INTRO ↗
               </button>
@@ -137,7 +152,10 @@ useEffect(() => {
                   <span>TM</span>
                 </div>
               </div>
-              <span className="intro-online">● NOW PLAYING</span>
+
+              <span className="intro-online">
+                ● Every Step Will Lead Me Home
+              </span>
             </div>
           </div>
         </div>
@@ -145,6 +163,7 @@ useEffect(() => {
     </div>
   );
 }
+  
 function Index() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [certificateFilter, setCertificateFilter] = useState('Semua');
