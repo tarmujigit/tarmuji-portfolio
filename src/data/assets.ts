@@ -43,8 +43,14 @@ export const replacedAssets: Record<
   'certificate-minori-seo-project-2025': 'jpg' ,
   'certificate-toefl-prediction': 'jpg' ,
   'achievement-iite-2024': 'png' ,
-  
-  
+  'logo-politeknik-takumi': 'svg',
+  'logo-smkn-1-ampelgading': 'svg',
+  'leadership-bem-takumi': 'svg',
+  'leadership-hima-bisnis-digital': 'svg',
+  'leadership-ukm-promotion-design': 'svg',
+  'leadership-bisnis-digital-competition': 'svg',
+  'leadership-bazar-takumi': 'svg',
+  'leadership-pkkmb': 'svg',
   
   // KOKOROLENS
   'kokorolens-dashboard': 'svg',
