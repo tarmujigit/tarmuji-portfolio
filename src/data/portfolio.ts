@@ -167,12 +167,12 @@ export const projects: Project[] = [
   },
 ];
 export const leadership = [
-  ['2024', 'Ketua Divisi Kesejahteraan & Kewirausahaan', 'BEM Takumi'],
-  ['2023–2024', 'Ketua Divisi Media Sosial', 'HIMA Bisnis Digital'],
-  ['2023–2024', 'Ketua Unit Kegiatan Mahasiswa', 'Promotion & Design'],
-  ['2024', 'Ketua Panitia', 'Bisnis Digital Competition Mobile Legend Season 1'],
-  ['2025', 'Ketua Panitia', 'Bazar Takumi'],
-  ['2023 & 2024', 'PIC Divisi Dokumentasi', 'PKKMB Politeknik Takumi'],
+  ['2024', 'Ketua Divisi Kesejahteraan & Kewirausahaan', 'BEM Takumi', asset('leadership-bem-takumi')],
+  ['2023–2024', 'Ketua Divisi Media Sosial', 'HIMA Bisnis Digital', asset('leadership-hima-bisnis-digital')],
+  ['2023–2024', 'Ketua Unit Kegiatan Mahasiswa', 'Promotion & Design', asset('leadership-ukm-promotion-design')],
+  ['2024', 'Ketua Panitia', 'Bisnis Digital Competition Mobile Legend Season 1', asset('leadership-bisnis-digital-competition')],
+  ['2025', 'Ketua Panitia', 'Bazar Takumi', asset('leadership-bazar-takumi')],
+  ['2023 & 2024', 'PIC Divisi Dokumentasi', 'PKKMB Politeknik Takumi', asset('leadership-pkkmb')],
 ];
 export const achievement = { title: 'Gold Medal', event: '4th International Innovation Technology Expo (IITE) 2024', category: 'Ready Made Product', product: 'Mega Apps', certificate: '1868 / DI / INDO / VII / 2024' };
 export const certificateCategories = ['Semua', 'Bahasa', 'BNSP', 'Data & Python', 'Digital Marketing & SEO', 'Profesional & Manajemen', 'Prestasi'];
@@ -232,7 +232,21 @@ export const certificates = [
    ['Digital Marketing', '2025', 'Digital Marketing & SEO', ''],
  ].map(([name, year, category, issuer], id) => ({ id, name, year, category, issuer, image: name === 'Digital Marketing' && year !== '2023' ? asset('certificate-coursera-adobe-digital-marketing'): certificateImages[name ?? ''] ?? '' }));
 export const education = [
-  { degree: 'D4 Bisnis Digital', school: 'Politeknik Takumi', date: '2022–2026', detail: 'IPK 3,52', focus: 'Digital Marketing, Business Analytics, Data Science, Market Research, dan Technology Innovation.' },
-  { degree: 'Teknik Otomotif', school: 'SMKN 1 Ampelgading', date: '2013–2016', detail: '', focus: 'Pendidikan teknik otomotif.' },
+  {
+    degree: 'D4 Bisnis Digital',
+    school: 'Politeknik Takumi',
+    date: '2022–2026',
+    detail: 'IPK 3,52',
+    focus: 'Digital Marketing, Business Analytics, Data Science, Market Research, dan Technology Innovation.',
+    logo: asset('logo-politeknik-takumi'),
+  },
+  {
+    degree: 'Teknik Otomotif',
+    school: 'SMKN 1 Ampelgading',
+    date: '2013–2016',
+    detail: '',
+    focus: 'Pendidikan teknik otomotif.',
+    logo: asset('logo-smkn-1-ampelgading'),
+  },
 ];
 export const languages = [['Bahasa Indonesia', 'Penutur asli'], ['Bahasa Inggris', 'Menengah'], ['Bahasa Jepang', 'JLPT N4']];
