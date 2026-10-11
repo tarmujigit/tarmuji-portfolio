@@ -170,46 +170,169 @@ function Index() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [certificateFilter, setCertificateFilter] = useState('Semua');
   const [projectFilter, setProjectFilter] = useState('Semua');
+  const [musicPopupOpen, setMusicPopupOpen] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
 
-  useEffect(() => {
-    const audio = document.getElementById('main-audio') as HTMLAudioElement | null;
-    if (!audio) return;
+  
+useEffect(() => {
+  const audio = document.getElementById(
+    'main-audio'
+  ) as HTMLAudioElement | null;
 
-    audio.volume = 0.03;
-    audio.loop = true;
+  if (!audio) return;
 
-    const tryPlay = () => {
-      const introAudio = document.getElementById('intro-audio') as HTMLAudioElement | null;
-      const introScreen = document.querySelector('.intro-screen');
+  audio.volume = 0.03;
+  audio.loop = true;
 
-      if (introScreen || (introAudio && !introAudio.paused)) {
-        audio.pause();
-        return;
-      }
+  const syncMusic = () => {
+    const introScreen = document.querySelector('.intro-screen');
+    const introAudio = document.getElementById(
+      'intro-audio'
+    ) as HTMLAudioElement | null;
 
-      if (audio.paused) {
-        audio.play().catch(() => {});
-      }
-    };
-
-    tryPlay();
-    const timer = window.setInterval(tryPlay, 500);
-    document.addEventListener('click', tryPlay);
-    document.addEventListener('touchstart', tryPlay);
-
-    return () => {
-      window.clearInterval(timer);
-      document.removeEventListener('click', tryPlay);
-      document.removeEventListener('touchstart', tryPlay);
+    if (introScreen || (introAudio && !introAudio.paused)) {
       audio.pause();
-    };
-  }, []);
+      setMusicPlaying(false);
+      return;
+    }
+
+    audio.play()
+      .then(() => setMusicPlaying(true))
+      .catch(() => setMusicPlaying(false));
+  };
+
+  const timer = window.setInterval(syncMusic, 500);
+  document.addEventListener('click', syncMusic);
+  document.addEventListener('touchstart', syncMusic);
+
+  syncMusic();
+
+  return () => {
+    window.clearInterval(timer);
+    document.removeEventListener('click', syncMusic);
+    document.removeEventListener('touchstart', syncMusic);
+  };
+}, []);
 
   const filteredCertificates = certificates.filter(c => certificateFilter === 'Semua' || c.category === certificateFilter);
   const filteredProjects = projects.filter(p => projectFilter === 'Semua' || p.filter === projectFilter);
+  const toggleMusic = async () => {
+  const audio = document.getElementById(
+    'main-audio'
+  ) as HTMLAudioElement | null;
 
+  if (!audio) return;
+
+  if (audio.paused) {
+    try {
+      await audio.play();
+      setMusicPlaying(true);
+    } catch {
+      setMusicPlaying(false);
+    }
+  } else {
+    audio.pause();
+    setMusicPlaying(false);
+  }
+};
+
+const stopMusic = () => {
+  const audio = document.getElementById(
+    'main-audio'
+  ) as HTMLAudioElement | null;
+
+  if (!audio) return;
+
+  audio.pause();
+  audio.currentTime = 0;
+  setMusicPlaying(false);
+  setMusicPopupOpen(false);
+};
+
+  
   return <>
     <audio id="main-audio" src="/audio/background.mp3" preload="auto" loop />
+    
+{/* Floating vinyl music button */}
+<button
+  type="button"
+  className={`music-vinyl-button ${musicPlaying ? 'is-playing' : ''}`}
+  aria-label="Buka pemutar musik"
+  aria-expanded={musicPopupOpen}
+  onClick={() => setMusicPopupOpen(true)}
+>
+  <span className="music-vinyl-disc">
+    <span className="music-vinyl-label">TM</span>
+  </span>
+  <span className="music-vinyl-indicator">
+    {musicPlaying ? '♫' : 'Ⅱ'}
+  </span>
+</button>
+
+{/* Center music popup */}
+{musicPopupOpen && (
+  <div
+    className="music-popup-backdrop"
+    onClick={() => setMusicPopupOpen(false)}
+  >
+    <section
+      className="music-popup"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Pemutar musik"
+      onClick={(event) => event.stopPropagation()}
+    >
+      <button
+        type="button"
+        className="music-popup-close"
+        aria-label="Tutup pemutar musik"
+        onClick={() => setMusicPopupOpen(false)}
+      >
+        ×
+      </button>
+
+      <div className="music-popup-eyebrow">
+        NOW PLAYING
+      </div>
+
+      <div className={`music-popup-record ${musicPlaying ? 'is-playing' : ''}`}>
+        <div className="music-popup-record-label">TM</div>
+      </div>
+
+      <h2>Background Music</h2>
+      <p className="music-popup-subtitle">
+        Tarmuji · Portfolio Soundtrack
+      </p>
+
+      <div className="music-popup-progress">
+        <span />
+      </div>
+      <div className="music-popup-caption">
+        <span>{musicPlaying ? 'Sedang diputar' : 'Dijeda'}</span>
+        <span>∞ Loop</span>
+      </div>
+
+      <div className="music-popup-controls">
+        <button
+          type="button"
+          className="music-control-primary"
+          onClick={toggleMusic}
+        >
+          {musicPlaying ? 'Ⅱ  Pause' : '▶  Play'}
+        </button>
+
+        <button
+          type="button"
+          className="music-control-secondary"
+          onClick={stopMusic}
+        >
+          ■  Matikan Musik
+        </button>
+      </div>
+    </section>
+  </div>
+)}
+
     <IntroScreen />
     <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-card focus:p-3">Langsung ke konten</a>
     <Navigation />
