@@ -54,18 +54,22 @@ function IntroScreen() {
     const start = Date.now();
 
     const timer = window.setInterval(() => {
-      const value = Math.min(
-        100,
-        ((Date.now() - start) / 30000) * 100
-      );
+  const elapsed = Date.now() - start;
+  const value = Math.min(100, (elapsed / 30000) * 100);
 
-      setProgress(value);
+  setProgress(value);
 
-      if (value >= 100) {
-        window.clearInterval(timer);
-        setEntered(true);
-      }
-    }, 50);
+  if (audio) {
+    // Volume mulai turun saat intro mencapai 80%.
+    const fadeProgress = Math.max(0, (value - 80) / 20);
+    audio.volume = 0.15 * (1 - fadeProgress);
+  }
+
+  if (value >= 100) {
+    window.clearInterval(timer);
+    setEntered(true);
+  }
+}, 50);
 
     return () => {
       window.clearInterval(timer);
