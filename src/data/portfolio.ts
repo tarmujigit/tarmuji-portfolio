@@ -7,9 +7,9 @@ export const profile = {
   portrait: asset('tarmuji-profile'), graduation: '',
   contact: { email: 'Tarmujimm18@gmail.com', linkedin: 'https://www.linkedin.com/in/tarmuji-mongel/' },
   stats: [
-    { value: '900 JAM', label: 'Magang Industri VINIX7', context: '28 Agu–28 Des 2025' },
-    { value: '94,12%', label: 'Akurasi KOKOROLENS', context: 'Evaluasi dataset · 51 komentar media sosial' },
-    { value: '5.600+', label: 'Pengikut Instagram Ayumi', context: 'Pada akhir periode pengelolaan' },
+    { value: '7+ Tahun', label: 'Pengalaman Di Industri', context: 'Perusahaan di Indonesia & Jepang' },
+    { value: '94,12%', label: 'Akurasi Website Analisis Sentimen', context: 'Evaluasi dataset · komentar media sosial' },
+    { value: '900K+ / Bulan', label: 'Engagement Sosial Media ', context: 'Digital Marketing' },
     { value: 'GOLD MEDAL', label: 'Mega Apps · IITE 2024', context: 'Kategori Ready Made Product' },
   ],
 };
