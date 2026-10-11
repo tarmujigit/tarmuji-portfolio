@@ -106,9 +106,7 @@ function IntroScreen() {
             <h1>
               Tarmuji, S.Tr.Bns
               <br />
-              Welcome to
-              <br />
-              my Portofolio
+              Portofolio
             </h1>
 
             <p>
