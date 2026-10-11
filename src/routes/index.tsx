@@ -171,7 +171,7 @@ function Index() {
     const audio = document.getElementById('main-audio') as HTMLAudioElement | null;
     if (!audio) return;
 
-    audio.volume = 0.12;
+    audio.volume = 0.03;
     audio.loop = true;
 
     const tryPlay = () => {
