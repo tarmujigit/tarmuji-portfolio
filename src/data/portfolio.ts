@@ -8,8 +8,8 @@ export const profile = {
   contact: { email: 'Tarmujimm18@gmail.com', linkedin: 'https://www.linkedin.com/in/tarmuji-mongel/' },
   stats: [
     { value: '7+ Tahun', label: 'Pengalaman Di Industri', context: 'Perusahaan di Indonesia & Jepang' },
-    { value: '94,12%', label: 'Akurasi Website Analisis Sentimen', context: 'Evaluasi dataset · komentar media sosial' },
-    { value: '900K+ / Bulan', label: 'Engagement Sosial Media ', context: 'Digital Marketing' },
+    { value: '94,12%', label: 'Akurasi Website Analisis Sentimen', context: 'Evaluasi dataset komentar media sosial' },
+    { value: '900K+ PerBulan', label: 'Engagement Sosial Media ', context: 'Digital Marketing' },
     { value: 'GOLD MEDAL', label: 'Mega Apps · IITE 2024', context: 'Kategori Ready Made Product' },
   ],
 };
