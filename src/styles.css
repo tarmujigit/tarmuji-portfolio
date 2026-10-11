@@ -711,6 +711,52 @@ min-width: 110px;
 }
 }
 
+.leadership-item {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-width: 0;
+}
+
+.leadership-item > span {
+  width: 70px;
+  font-size: 11px;
+}
+
+.leadership-item h3 {
+  font-size: 15px;
+}
+
+.leadership-image {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.education-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.education-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.contact-title {
+  font-size: 34px;
+}
+
+.contact-links {
+  gap: 12px;
+}
+
 @media (max-width: 640px) {
   .leadership-grid {
     grid-template-columns: 1fr;
@@ -720,35 +766,19 @@ min-width: 110px;
   .leadership-item {
     grid-template-columns: 1fr;
     gap: 10px;
-    min-width: 0;
+  }
+
+  .leadership-item > span {
+    width: auto;
   }
 
   .leadership-image {
-    width: 100%;
-    max-width: 100%;
-    height: 160px;
-    object-fit: contain;
+    height: 180px;
+    object-fit: cover;
   }
 
   .education-layout {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-
-  .education-item {
-    min-width: 0;
-  }
-
-  .education-title-row {
-    align-items: center;
-    gap: 12px;
-  }
-
-  .education-logo {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    flex-shrink: 0;
-  }
 }
-
