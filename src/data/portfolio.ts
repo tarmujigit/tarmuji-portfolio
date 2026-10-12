@@ -131,7 +131,7 @@ export const projects: Project[] = [
       { title: 'Video Perkenalan Angkatan PKKMB Politeknik Takumi 2023', url: 'https://drive.google.com/file/d/1NDS5E6kb1TKl8_iVpD-m4KdFw-SI0TMG/view?usp=sharing', thumbnail: asset('video-pkkmb-2023') },
       { title: 'Video Klip Mars Politeknik Takumi', url: 'https://drive.google.com/file/d/1rXB04Pk5CjbHxLHwxwqBhcKh__djp4G1/view?usp=sharing', thumbnail: asset('video-mars-politeknik-takumi') },
       { title: 'Video Perkenalan BEM Politeknik Takumi 2024', url: 'https://drive.google.com/file/d/1T9gz6J59LetH9jnIXlqgmkIFEZGRVbEU/view?usp=sharing', thumbnail: asset('video-bem-2024') },
-      { title: 'Video Promosi VINIX7', thumbnail: asset('video-vinix7-promo') },
+      { title: 'Video Promosi VINIX7', url: 'https://drive.google.com/file/d/15-JEqeh_XLpfHuit2XU7rxWlFdJE9sqG/view?usp=drivesdk', thumbnail: asset('video-vinix7-promo') },
       { title: 'Video Podcast — PT Ayumi Nihongo Gakkou', url: 'https://youtu.be/zgcHf77XT7M?si=6Q13FSTHFAeeHQ5R', thumbnail: asset('video-ayumi-podcast') },
       { title: 'Dokumentasi 送別会 (Soubetsukai) — JFT-Basic Batch 4 PT Ayumi Nihongo Gakkou', url: 'https://youtu.be/vLw0ugsxnqc?si=mjGkJ2JBT1KS9imR', thumbnail: asset('video-soubetsukai') },
       { title: 'Video Promosi PT Ayumi Nihongo Gakkou', url: 'https://drive.google.com/file/d/1ip7C8WDshF8tfoOV3RDkZ8-OqsufT_3w/view?usp=sharing', thumbnail: asset('video-ayumi-promo') },
