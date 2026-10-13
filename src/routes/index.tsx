@@ -382,6 +382,85 @@ const stopMusic = () => {
       <section id="achievements" className="section"><div className="container-shell"><div className="achievement" aria-labelledby="achievement-title"><div className="award-emblem"><img className="achievement-photo" src={asset('achievement-iite-2024')} alt="Tarmuji memegang medali Gold Medal IITE 2024" loading="lazy" /></div><div className="achievement-copy"><div className="eyebrow">06 / PRESTASI</div><h2 id="achievement-title">{achievement.title}{' '}<span className="gradient-text">— IITE 2024</span></h2><p>{achievement.event}</p><p>Kategori {achievement.category} · Produk {achievement.product}</p><p className="award-certificate">No. sertifikat: {achievement.certificate}</p></div><span className="award-year" aria-hidden="true">2024</span></div><SectionHeading eyebrow="KEPEMIMPINAN & ORGANISASI" title={<>Berkarya bersama. <span className="gradient-text">Memimpin dengan tujuan.</span></>} /><div className="leadership-grid">{leadership.map(([year, role, org, image]) => (<article className="leadership-item" key={`${org}-${role}`}><img className="leadership-image" src={image} alt="" loading="lazy" /><span>{year}</span><div><h3>{role}</h3><p>{org}</p></div></article>))}</div></div></section>
       <section id="education" className="section"><div className="container-shell education-layout"><div><SectionHeading eyebrow="07 / PENDIDIKAN" title="Fondasi akademik." />{education.map(e => (<article className="education-item" key={e.school}><div className="education-title-row"><img className="education-logo" src={e.logo} alt={`Logo ${e.school}`} loading="lazy" /><h3>{e.degree}</h3></div><div className="education-meta"><span>{e.school}</span><span>{e.date}</span></div>{e.detail && <p>{e.detail}</p>}<p>{e.focus}</p>{e.school === 'Politeknik Takumi' && <a className="education-story-link" href="#about">Perjalanan pendidikan <ArrowUpRight size={16} /></a>}</article>))}</div><div><SectionHeading eyebrow="KOMUNIKASI LINTAS BUDAYA" title="Bahasa" /><div className="language-list">{languages.map(([name, level]) => (<div className="language-row" key={name}><span className="language-name"><span className="language-flag">{name === 'Bahasa Indonesia' ? '🇮🇩' : name === 'Bahasa Inggris' ? '🇬🇧' : name === 'Bahasa Jepang' ? '🇯🇵' : '🌐'}</span><span>{name}</span></span><span className="language-level">{level}</span></div>))}</div></div></div></section>
       <section id="contact" className="contact-section"><div className="container-shell"><div className="eyebrow">08 / HUBUNGI SAYA</div><h2 className="contact-title">PUNYA IDE?<br /><span className="gradient-text">MARI TERHUBUNG.</span></h2><p className="contact-subtext">Untuk percakapan tentang peluang kerja, kolaborasi, karya kreatif, dan tantangan bisnis digital.</p><Button variant="portfolio" asChild><a href={`mailto:${profile.contact.email}`} target="_blank" rel="noopener noreferrer">Kirim Email <ArrowUpRight /></a></Button><div className="contact-links"><a href={`mailto:${profile.contact.email}`} target="_blank" rel="noopener noreferrer"><Mail />{profile.contact.email}<ArrowUpRight size={12} /></a><a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin />LinkedIn<ArrowUpRight size={12} /></a><a href="https://wa.me/6287871022298" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-label="WhatsApp"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.55 0 .22 5.33.22 11.88c0 2.1.55 4.16 1.6 5.97L.12 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.88-5.33 11.88-11.88a11.8 11.8 0 0 0-3.47-8.44ZM12.1 21.78a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-3.74.98 1-3.65-.24-.38a9.85 9.85 0 1 1 8.39 4.65Zm5.41-7.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg>WhatsApp<ArrowUpRight size={12} /></a><a href="https://www.instagram.com/itsventzy_?rpxt=MWN4MmllMWF1djV1ag==" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram<ArrowUpRight size={12} /></a><a href="https://www.tiktok.com/@ventzy__?_r=1&_t=ZS-9ASb7jLsdDI" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-label="TikTok"><path d="M19.6 7.2a6.8 6.8 0 0 1-4.1-1.4v8.1a6.2 6.2 0 1 1-5.4-6.1v3.4a2.9 2.9 0 1 0 2.1 2.8V2h3.3a6.7 6.7 0 0 0 4.1 4.1v1.1Z"/></svg>TikTok<ArrowUpRight size={12} /></a></div></div></section>
+      <section id="tools" className="section tools-section">
+        <div className="container-shell">
+          <SectionHeading
+            eyebrow="09 / TOOLS & SOFTWARE"
+            title={<>Tools untuk mendukung <span className="gradient-text">karya saya.</span></>}
+            description="Perangkat yang mendukung pekerjaan saya dalam pemasaran digital, analisis data, desain kreatif, teknologi, dan produktivitas."
+          />
+
+          {[
+            {
+              title: 'Digital Marketing & Analytics',
+              items: [
+                { name: 'Meta Business Suite', mark: 'M', color: '#6C8CFF' },
+                { name: 'TikTok Analytics', mark: '♪', color: '#F7F7F7' },
+                { name: 'Google Analytics', mark: '◔', color: '#F9AB00' },
+                { name: 'Google Search Console', mark: '⌕', color: '#67A7FF' },
+                { name: 'Canva', mark: 'C', color: '#45C6D9' },
+              ],
+            },
+            {
+              title: 'Brand Design & Content Creation',
+              items: [
+                { name: 'Photoshop', mark: 'Ps', color: '#31A8FF' },
+                { name: 'Illustrator', mark: 'Ai', color: '#FF9A00' },
+                { name: 'Lightroom', mark: 'Lr', color: '#80BFFF' },
+                { name: 'CapCut', mark: '✂', color: '#FFFFFF' },
+                { name: 'Premiere Pro', mark: 'Pr', color: '#9999FF' },
+                { name: 'After Effects', mark: 'Ae', color: '#9999FF' },
+              ],
+            },
+            {
+              title: 'Data Analytics & Reporting',
+              items: [
+                { name: 'Microsoft Excel', mark: 'X', color: '#21A366' },
+                { name: 'Google Sheets', mark: '▤', color: '#34A853' },
+                { name: 'Python', mark: 'Py', color: '#FFD43B' },
+                { name: 'Pandas', mark: 'pd', color: '#B9A5FF' },
+                { name: 'SQL', mark: 'SQL', color: '#65B8FF' },
+              ],
+            },
+            {
+              title: 'Technology & Game Development',
+              items: [
+                { name: 'Roblox Studio', mark: '◇', color: '#FFFFFF' },
+                { name: 'Lua', mark: 'Lua', color: '#7FAEFF' },
+                { name: 'Visual Studio Code', mark: '</>', color: '#35A9FF' },
+                { name: 'GitHub', mark: '⌘', color: '#F0F0F0' },
+                { name: 'Firebase', mark: 'ϟ', color: '#FFCA28' },
+              ],
+            },
+            {
+              title: 'UI/UX & Office Productivity',
+              items: [
+                { name: 'Figma', mark: '◈', color: '#F76E5E' },
+                { name: 'Microsoft Word', mark: 'W', color: '#2B7CD3' },
+                { name: 'Microsoft PowerPoint', mark: 'P', color: '#D35230' },
+              ],
+            },
+          ].map((group) => (
+            <div className="tools-group" key={group.title}>
+              <h3 className="tools-group-title">{group.title}</h3>
+              <div className="tools-grid">
+                {group.items.map((tool) => (
+                  <article className="tool-card" key={tool.name}>
+                    <div
+                      className="tool-icon"
+                      aria-hidden="true"
+                      style={{ color: tool.color }}
+                    >
+                      {tool.mark}
+                    </div>
+                    <h4>{tool.name}</h4>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
     <footer className="container-shell footer"><a href="#home" aria-label="Beranda Tarmuji"><Wordmark /></a><p>© {profile.year} Tarmuji. Seluruh hak cipta dilindungi.</p><a href="#home" className="inline-flex items-center gap-2">Kembali ke atas <ArrowUp size={12} /></a></footer>
     <CaseStudy project={selectedProject} onClose={() => setSelectedProject(null)} />
