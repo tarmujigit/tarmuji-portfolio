@@ -24,18 +24,23 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
   return <div className="section-heading"><div><div className="eyebrow">{eyebrow}</div><h2 className="section-title">{title}</h2></div>{description && <p className="section-intro">{description}</p>}</div>;
 }
 const skillIcons = [BarChart3, Database, Palette, Code2, BriefcaseBusiness];
-
 function Index() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [certificateFilter, setCertificateFilter] = useState('Semua');
   const [projectFilter, setProjectFilter] = useState('Semua');
- 
-  const filteredCertificates = certificates.filter(c => certificateFilter === 'Semua' || c.category === certificateFilter);
-  const filteredProjects = projects.filter(p => projectFilter === 'Semua' || p.filter === projectFilter);
+
+  const filteredCertificates = certificates.filter(
+    c => certificateFilter === 'Semua' || c.category === certificateFilter
+  );
+
+  const filteredProjects = projects.filter(
+    p => projectFilter === 'Semua' || p.filter === projectFilter
+  );
+
   return (
     <>
-    <Navigation />
-    <main id="main">
+      <Navigation />
+      <main id="main">
       <section id="home" className="hero-section"><div className="container-shell"><div className="hero-main">
         <div className="reveal"><div className="eyebrow">{profile.positioning}</div><h1 className="hero-name">{profile.name}<span className="gradient-text">.</span></h1>
           <h2 className="hero-title">Dari data, ide, dan kreativitas menjadi <span className="gradient-text">pengalaman digital.</span></h2>
