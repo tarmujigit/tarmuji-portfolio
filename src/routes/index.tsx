@@ -29,66 +29,7 @@ function Index() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [certificateFilter, setCertificateFilter] = useState('Semua');
   const [projectFilter, setProjectFilter] = useState('Semua');
-  const [musicPopupOpen, setMusicPopupOpen] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(false);
-
-
-  
-useEffect(() => {
-  const audio = document.getElementById(
-    'main-audio'
-  ) as HTMLAudioElement | null;
-
-  if (!audio) return;
-
-  audio.volume = 0.03;
-  audio.loop = true;
-
-  const syncMusic = () => {
-    const introScreen = document.querySelector('.intro-screen');
-    const introAudio = document.getElementById(
-      'intro-audio'
-    ) as HTMLAudioElement | null;
-
-    if (introScreen || (introAudio && !introAudio.paused)) {
-      audio.pause();
-      setMusicPlaying(false);
-      return;
-    }
-
-    // Coba autoplay hanya saat musik belum pernah dimulai.
-    if (audio.paused && audio.currentTime === 0) {
-      audio.play()
-        .then(() => setMusicPlaying(true))
-        .catch(() => setMusicPlaying(false));
-    }
-  };
-
-  const timer = window.setInterval(() => {
-    const introScreen = document.querySelector('.intro-screen');
-    const introAudio = document.getElementById(
-      'intro-audio'
-    ) as HTMLAudioElement | null;
-
-    if (introScreen || (introAudio && !introAudio.paused)) {
-      audio.pause();
-      setMusicPlaying(false);
-    } else {
-      window.clearInterval(timer);
-      syncMusic();
-    }
-  }, 500);
-
-  audio.addEventListener('play', () => setMusicPlaying(true));
-  audio.addEventListener('pause', () => setMusicPlaying(false));
-
-  syncMusic();
-
-  return () => {
-    window.clearInterval(timer);
-  };
-}, []);
-
+ 
   const filteredCertificates = certificates.filter(c => certificateFilter === 'Semua' || c.category === certificateFilter);
   const filteredProjects = projects.filter(p => projectFilter === 'Semua' || p.filter === projectFilter);
   const toggleMusic = async () => {
