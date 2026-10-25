@@ -32,6 +32,8 @@ function Index() {
  
   const filteredCertificates = certificates.filter(c => certificateFilter === 'Semua' || c.category === certificateFilter);
   const filteredProjects = projects.filter(p => projectFilter === 'Semua' || p.filter === projectFilter);
+  return (
+    <>
     <Navigation />
     <main id="main">
       <section id="home" className="hero-section"><div className="container-shell"><div className="hero-main">
