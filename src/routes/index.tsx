@@ -66,10 +66,10 @@ function Index() {
 
       <div className="about-copy">
         <p>
-          Saya <strong>Tarmuji</strong>, Lulusan Terbaik D4 Bisnis Digital
+          Saya <strong>Tarmuji</strong>, Lulusan D4 Bisnis Digital
           Politeknik Takumi dengan IPK 3,52 (Cum Laude). Saya memiliki
-          ketertarikan pada <strong>digital marketing, analisis data,
-          dan pengembangan konten digital</strong>.
+          ketertarikan pada <strong>digital marketing, Social Media Spesialist,
+          dan content creation</strong>.
         </p>
 
         <p>
@@ -106,8 +106,7 @@ function Index() {
         'BISNIS DIGITAL',
         'DIGITAL MARKETING',
         'DATA ANALYTICS',
-        'CONTENT CREATION',
-        'TECHNOLOGY'
+        'CONTENT CREATION'
       ].map((step, i) => (
         <span
           className="inline-flex items-center gap-3"
