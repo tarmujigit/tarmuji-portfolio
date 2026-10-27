@@ -21,7 +21,7 @@ export const navigation = [
   { label: 'Hubungi Saya', id: 'contact' },
 ];
 export const experience = [
-  { date: 'Mei–Agu 2026', role: 'Assistant Director', company: 'Politeknik Takumi', area: 'Pendidikan & kepemimpinan' },
+  { date: 'Mei–Agu 2026', role: 'Administradi - Assistant Director', company: 'Politeknik Takumi', area: 'Pendidikan & kepemimpinan' },
   { date: 'Jan–Mei 2026', role: 'Roblox Developer & Scripter', company: 'Freelance / Proyek Pribadi', area: 'Pengembangan & scripting' },
   { date: '28 Agu–28 Des 2025', role: 'Magang · Brand Design Marketer', company: 'PT Vinix Seven Aurum', area: 'Brand & pemasaran' },
   { date: 'Feb 2024–Agu 2025', role: 'Administration & Digital Marketing', company: 'PT Ayumi Nihongo Gakkou', area: 'Administrasi & pemasaran digital' },
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     pipeline: ['Dataset', 'Preprocessing', 'TF-IDF', 'Multinomial Naive Bayes', 'Evaluasi', 'Visualisasi', 'Insight', 'AI Recommendation'],
     tools: 'TF-IDF, Multinomial Naive Bayes, NLP, machine learning, dan aplikasi web.',
     metrics: [{ label: 'Accuracy', value: '94,12%' }, { label: 'Precision', value: '94,38%' }, { label: 'Recall', value: '94,12%' }, { label: 'F1-Score', value: '93,97%' }],
-    evidenceNote: 'Hasil evaluasi dataset pengujian: 51 komentar media sosial dan 105 fitur TF-IDF. Angka ini hanya menggambarkan evaluasi tersebut, bukan jaminan performa pada semua data atau kondisi penggunaan.',
+    evidenceNote: 'Hasil evaluasi dataset pengujian: 500 komentar media sosial dan 105 fitur TF-IDF. Angka ini hanya menggambarkan evaluasi tersebut, bukan jaminan performa pada semua data atau kondisi penggunaan.',
     output: 'Sistem analisis sentimen berbasis web, visualisasi hasil, insight, dan rekomendasi AI.', gallery: [],
   },
   {
